@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:catalog].blank?
-      @articles = Article.all.order("created_at desc")
+      @articles = Article.all.order("created_at DESC")
     else
       @catalog_id = Catalog.find_by(name: params[:catalog]).id
       @articles = Article.where(catalog_id: @catalog_id)

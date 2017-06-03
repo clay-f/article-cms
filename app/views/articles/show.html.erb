@@ -1,32 +1,47 @@
 <div class="content">
   <div class="panel panel-default" id="main_text">
-    <h1><%= @article.title %></h1>
-    <p>
-      Type:
-      <%= @article.catalog.name %>
-    </p>
-    <span class="thumbnail">
-        <%= image_tag(@article.avatar) %>
-    </span>
-    <p>
-      <%= @article.body %>
-      <div id="edit article">
-        <%= link_to 'home', root_path %>
-        <%= link_to 'back', new_article_path %>
-        <%= link_to 'edit', edit_article_path(@article) %>
-        <%= link_to 'delete', article_path(@article), method: :delete, data: {confirm: "are you sure?"} %>
+    <div class="article-title">
+      <h1><%= @article.title %></h1>
+    </div>
+    <div class="article-catalog-type">
+      <p>
+        Type:
+        <%= @article.catalog.name %>
+      </p>
+    </div>
+    <div class="article-content">
+      <div class="article-img">
+        <% if @article.avatar? %>
+         <span class="thumbnail">
+              <%= image_tag(@article.avatar) %>
+           </span>
+        <% end %>
       </div>
+      <div class="content">
+        <p>
+          <%= @article.body %>
+        <div id="edit article">
+          <%= link_to 'home', root_path %>
+          <%= link_to 'back', new_article_path %>
+          <%= link_to 'edit', edit_article_path(@article) %>
+          <%= link_to 'delete', article_path(@article), method: :delete, data: {confirm: "are you sure?"} %>
+        </div>
+        </p>
+      </div>
+    </div>
 
-    </p>
   </div>
   <div class="panel panel-body" id="comments">
-    <h3>comment</h3>
-    <p>
+    <div class="comments-title">
+      <h3>《<%= @article.title %>》的评论</h3>
+    </div>
+    <ul class="comments-list">
       <%= render @article.comments %>
-    </p>
-    <p>
-      <%= render "comments/form" %>
-    </p>
+    </ul>
+    <div class="comments-form">
+      <p>
+        <%= render "comments/form" %>
+      </p>
+    </div>
   </div>
 </div>
-

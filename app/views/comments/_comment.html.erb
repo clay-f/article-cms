@@ -1,12 +1,15 @@
-<p>
-  Name:
-  <%= comment.name %>
-</p>
-
-<p>
-  description:
-  <%= comment.description %>
-</p>
-
-
-<%=	 link_to 'destroy', [comment.article, comment], method: :delete, data: { confirm: "are you sure?" }  %>
+<li>
+  <div class="comment-head">
+    <p>
+      Name:
+      <%= comment.name %>
+    </p>
+  </div>
+  <div class="comment-content">
+    <p>
+      description:
+      <%= comment.description %>
+    </p>
+  </div>
+  <%= link_to 'destroy', [comment.article, comment], method: :delete, data: {confirm: "are you sure?"} %>
+</li>
