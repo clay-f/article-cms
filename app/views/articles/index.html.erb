@@ -1,0 +1,9 @@
+<% if !@articles.blank? %>
+    <ul class="list-group">
+      <% @articles.each do |article| %>
+          <li class="list-group-item">
+            <%= link_to article.title, article %>
+          </li>
+      <% end %>
+    </ul>
+<% end %>
