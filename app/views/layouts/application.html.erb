@@ -39,7 +39,7 @@
         <li>
           <%= form_tag search_articles_path, method: :get do %>
               <%= text_field_tag :search, params[:search], placeholder: "search" %>
-              <%= submit_tag "search", name: "name", class: "btn btn-default" %>
+              <%= submit_tag "search", name: "", class: "btn btn-default" %>
           <% end %>
         </li>
       </ul>
