@@ -4,6 +4,13 @@ class ArticlesController < ApplicationController
   before_action :find_catalog, only: [:edit, :create, :new]
   before_action :authenticate_user!, except: [:index, :show]
 
+  def search
+    if params[:search].present?
+      @articles = Article.search(params[:search])
+    else
+      @articles = Article.all.order("created_at DESC")
+    end
+  end
 
   def index
     if params[:catalog].blank?
