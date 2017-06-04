@@ -20,12 +20,16 @@
       <div class="content">
         <p>
           <%= @article.body %>
-        <div id="edit article">
-          <%= link_to 'home', root_path %>
-          <%= link_to 'back', new_article_path %>
-          <%= link_to 'edit', edit_article_path(@article) %>
-          <%= link_to 'delete', article_path(@article), method: :delete, data: {confirm: "are you sure?"} %>
-        </div>
+          <% if !current_user.blank? %>
+              <% if @article.user_id == current_user.id %>
+                <div id="edit article">
+                  <%= link_to 'home', root_path %>
+                  <%= link_to 'back', new_article_path %>
+                  <%= link_to 'edit', edit_article_path(@article) %>
+                  <%= link_to 'delete', article_path(@article), method: :delete, data: {confirm: "are you sure?"} %>
+                </div>
+            <% end %>
+          <% end %>
         </p>
       </div>
     </div>
