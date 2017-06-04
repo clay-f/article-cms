@@ -7,10 +7,9 @@ class CommentsController < ApplicationController
     @comment = @article.comments.create(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      redirect_to @article
+      redirect_to @article, notice: "created succeed."
     else
-
-      redirect_to @article
+      redirect_to @article, notice: "name or descrip is too short."
     end
   end
 
