@@ -1,7 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
 body {
   background-color: #ECEFF1;
+
+  li.search {
+    margin-top: 13px;
+  }
+
 }
+
