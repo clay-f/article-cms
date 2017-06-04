@@ -8,6 +8,9 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       redirect_to @article
+    else
+
+      redirect_to @article
     end
   end
 
