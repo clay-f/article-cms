@@ -3,12 +3,14 @@
     <div class="article-title">
       <h1><%= @article.title %></h1>
     </div>
-    <div class="article-catalog-type">
-      <p>
-        Type:
-        <%= @article.catalog.name %>
-      </p>
-    </div>
+    <% if @article.catalog.present? %>
+        <div class="article-catalog-type">
+          <p>
+            Type:
+            <%= @article.catalog.name %>
+          </p>
+        </div>
+    <% end %>
     <div class="article-content">
       <div class="article-img">
         <% if @article.avatar? %>
