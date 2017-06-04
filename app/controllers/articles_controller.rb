@@ -8,16 +8,16 @@ class ArticlesController < ApplicationController
     if params[:search].present?
       @articles = Article.search(params[:search])
     else
-      @articles = Article.all.order("created_at DESC")
+      @articles = Article.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     end
   end
 
   def index
     if params[:catalog].blank?
-      @articles = Article.all.order("created_at DESC")
+      @articles = Article.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     else
       @catalog_id = Catalog.find_by(name: params[:catalog]).id
-      @articles = Article.where(catalog_id: @catalog_id)
+      @articles = Article.where(catalog_id: @catalog_id).paginate(page: params[:page], per_page: 10)
     end
   end
 
