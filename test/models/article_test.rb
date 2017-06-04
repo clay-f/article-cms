@@ -15,6 +15,4 @@ class ArticleTest < ActiveSupport::TestCase
   test "invalidate without title to save" do
       article = Article.new(body: "foo")
   end
-
-
 end
