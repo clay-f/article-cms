@@ -1,5 +1,15 @@
-<ul>
-  <% @articles.each do |t| %>
-      <li> <%= t.title %></li>
-  <% end %>
-</ul>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <% if !@articles.blank? %>
+        <ul>
+          <% @articles.each do |t| %>
+              <li> <%= t.title %></li>
+          <% end %>
+        </ul>
+    <% else %>
+        <div class="well">
+          <p>nothing be fount.</p>
+        </div>
+    <% end %>
+  </div>
+</div>
