@@ -1,9 +1,16 @@
-<% if !@articles.blank? %>
-    <ul class="list-group">
-      <% @articles.each do |article| %>
-          <li class="list-group-item">
-            <%= link_to article.title, article %>
-          </li>
-      <% end %>
-    </ul>
-<% end %>
+<div class="article-content">
+  <div class="article-list">
+    <% if !@articles.blank? %>
+        <ul class="list-group">
+          <% @articles.each do |article| %>
+              <li class="list-group-item">
+                <%= link_to truncate(article.title, length: 30), article, class: "article_title text-center" %>
+              </li>
+          <% end %>
+        </ul>
+    <% end %>
+  </div>
+</div>
+<div class="article-footer">
+</div>
+

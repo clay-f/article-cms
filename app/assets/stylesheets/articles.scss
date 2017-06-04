@@ -1,3 +1,14 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.article-content {
+  div.article-list {
+    ul li {
+      text-align: center;
+    }
+    ul li a.article_title {
+      text-decoration: none;
+    }
+  }
+}
