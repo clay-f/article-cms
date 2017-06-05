@@ -2,9 +2,9 @@
   <div class="panel-body">
     <div class="search_list">
       <% if !@articles.blank? %>
-          <ul>
+          <ul class="list-group">
             <% @articles.each do |t| %>
-                <li> <%= link_to t.title, t %></li>
+                <li class="list-group-item"> <%= link_to t.title, t %></li>
             <% end %>
           </ul>
       <% else %>

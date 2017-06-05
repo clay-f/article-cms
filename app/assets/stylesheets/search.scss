@@ -1,3 +1,8 @@
-div.search_list ul li a {
-  text-decoration: none;
+div.search_list {
+  ul li {
+    text-align: center;
+  }
+  div.search_list ul li a {
+    text-decoration: none;
+  }
 }
