@@ -1,51 +1,64 @@
-<div class="content">
+<div class="main">
   <div class="panel panel-default" id="main_text">
-    <div class="article-title">
-      <h1><%= @article.title %></h1>
-    </div>
-    <% if @article.catalog.present? %>
-        <div class="article-catalog-type">
-          <p>
-            Type:
-            <%= @article.catalog.name %>
-          </p>
-        </div>
-    <% end %>
-    <div class="article-content">
-      <div class="article-img">
-        <% if @article.avatar? %>
+
+    <div class="entry-content">
+      <div class="article-title">
+        <h1><%= @article.title %></h1>
+      </div>
+      <% if @article.catalog.present? %>
+          <div class="article-catalog-type">
+            <p class="help-block">
+              <span>
+               posted on <%= @article.created_at.strftime("%Y年%m月%d日") %>
+             </span>
+              <br>
+              <span>
+                 Type:
+                <%= @article.catalog.name %>
+              </span>
+            </p>
+          </div>
+      <% end %>
+      <div class="article-content">
+        <div class="article-img">
+          <% if @article.avatar? %>
          <span class="thumbnail">
               <%= image_tag(@article.avatar) %>
            </span>
-        <% end %>
-      </div>
-      <div class="content">
+          <% end %>
+        </div>
+        <div class="content">
           <%= markdown @article.body %>
           <% if !current_user.blank? %>
               <% if @article.user_id == current_user.id %>
-                <div id="edit article">
-                  <%= link_to 'home', root_path %>
-                  <%= link_to 'back', new_article_path %>
-                  <%= link_to 'edit', edit_article_path(@article) %>
-                  <%= link_to 'delete', article_path(@article), method: :delete, data: {confirm: "are you sure?"} %>
-                </div>
-            <% end %>
-        <% end %>
+                  <div id="edit article">
+                    <%= link_to 'home', root_path, class: "btn btn-default" %>
+                    <%= link_to 'back', new_article_path, class: "btn btn-default" %>
+                    <%= link_to 'edit', edit_article_path(@article), class: "btn btn-default" %>
+                    <%= link_to 'delete', article_path(@article), method: :delete, data: {confirm: "are you sure?"}, class: "btn btn-default" %>
+                  </div>
+              <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-
   </div>
-  <div class="panel panel-body" id="comments">
-    <div class="comments-title">
-      <h3>《<%= @article.title %>》的评论</h3>
-    </div>
-    <ul class="comments-list">
-      <%= render @article.comments %>
-    </ul>
-    <div class="comments-form">
-      <p>
-        <%= render "comments/form" %>
-      </p>
+
+  <div class="entry-footer">
+    <div class="panel panel-default">
+      <div class="panel panel-body" id="comments">
+        <div class="comments-title">
+          <h3>《<%= @article.title %>》的评论</h3>
+        </div>
+        <ul class="comments-list">
+          <%= render @article.comments %>
+        </ul>
+        <div class="comments-form">
+          <p>
+            <%= render "comments/form" %>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
