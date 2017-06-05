@@ -8,8 +8,6 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -63,3 +61,11 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'redcarpet', '~> 3.4'
 gem 'coderay', '~> 1.1', '>= 1.1.1'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+
+group :development, :test do
+  gem 'sqlite3'
+end
+
+group :production, :staging do
+  gem 'pg'
+end
