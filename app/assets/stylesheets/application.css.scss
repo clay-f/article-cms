@@ -4,8 +4,13 @@
 @import "search";
 body {
   background-color: #ECEFF1;
+  ul.nav.navbar-nav {
+      li.search {
+          width: 250px;
+      }
+  }
   li.search {
-    margin-top: 13px;
+    margin-top: 8px;
   }
 
 }
