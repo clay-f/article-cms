@@ -11,5 +11,9 @@
       <%= comment.description %>
     </p>
   </div>
-  <%= link_to 'destroy', [comment.article, comment], method: :delete, data: {confirm: "are you sure?"} %>
+  <% if user_signed_in? %>
+      <% if @article.user_id == current_user.id %>
+          <%= link_to 'destroy', [comment.article, comment], method: :delete, data: {confirm: "are you sure?"}, class: "btn btn-default" %>
+      <% end %>
+  <% end %>
 </li>

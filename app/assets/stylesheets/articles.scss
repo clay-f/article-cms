@@ -21,3 +21,10 @@ div.article-title {
 div.entry-content {
   margin: 20px;
 }
+
+div.entry-footer {
+  ul.comments-list li {
+    list-style: none;
+    border-bottom: 1px dotted #DDD;
+  }
+}
