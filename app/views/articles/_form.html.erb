@@ -2,8 +2,6 @@
     <%= f.input :title %>
     <%= f.select :catalog_id, @catalog %>
     <%=	f.input :avatar  %>
-    <div class="form-group">
-        <%= f.text_area :body, class: "form-control", rows: "15" %>
-    </div>
+    <%= f.input :body %>
     <%= f.button :submit %>
 <% end %>

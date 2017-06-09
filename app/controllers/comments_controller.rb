@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @article, notice: "created succeed."
     else
-      redirect_to @article, notice: "name or descrip is too short."
+      redirect_to @article, notice: "name or descrip is too short
     end
   end
 
