@@ -50,11 +50,14 @@
           <h3>《<%= @article.title %>》的评论</h3>
         </div>
         <ul class="comments-list">
-          <%= render @article.comments %>
+          <%= render @comments %>
         </ul>
         <div class="comments-form">
           <p>
             <%= render "comments/form" %>
+          </p>
+          <p>
+            <%= will_paginate @comments, renderer: BootstrapPagination::Rails %>
           </p>
         </div>
       </div>
