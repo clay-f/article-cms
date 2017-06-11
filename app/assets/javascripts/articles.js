@@ -48,24 +48,19 @@ $(function () {
 
     $("form#new_comment").validate({
         rules: {
-            comment_name: {
+            "comment[name]": {
                 required: true,
                 minlength: 3
             },
 
-            comment_description: {
+            "comment[description]": {
                 required: true,
                 minlength: 5
+            },
+            submitHandler: function (form) {
+                console.log("hello world");
             }
-        },
-        submitHandler: function (form) {
-
-            $.ajax({
-                dataType: 'script',
-                method: $(this).attr('method'),
-                url: $(this).attr('action'),
-                data: $(this).serializeArray()
-            })
         }
     });
+
 });
