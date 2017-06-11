@@ -1,4 +1,4 @@
-<%= simple_form_for([@article, @article.comments.build]) do |f| %>
+<%= simple_form_for([@article, @article.comments.build], remote: true) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.submit :submit, class: "btn btn-default" %>
