@@ -9,7 +9,7 @@
           <div class="article-catalog-type">
             <p class="help-block">
               <span>
-               posted on <%= @article.created_at.strftime("%Y年%m月%d日") %>
+               posted on <%= @article.created_at.strftime("%Y-%m-%d") %>
              </span>
               <br>
               <span>
@@ -47,18 +47,26 @@
     <div class="panel panel-default">
       <div class="panel panel-body" id="comments">
         <div class="comments-title">
-          <h3>《<%= @article.title %>》的评论</h3>
+          <h3>《<%= @article.title %>》Comments</h3>
         </div>
         <ul class="comments-list">
           <%= render @comments %>
         </ul>
-        <div class="comments-form">
-          <p>
-            <%= render "comments/form" %>
-          </p>
+        <% if user_signed_in? %>
+            <div class="comments-form">
+              <p>
+                <%= render "comments/form" %>
+              </p>
+        <% else %>
+            <div class="well">
+              <p><%= link_to '(You must log in or sign up to reply here.)', new_user_session_path, class: "btn btn-default" %></p>
+            </div>
+        <% end %>
+        <div class="comment_paginate">
           <p>
             <%= will_paginate @comments, renderer: BootstrapPagination::Rails %>
           </p>
+        </div>
         </div>
       </div>
     </div>
