@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
+    binding.pry
     @comment = @article.comments.create(comment_params)
     @comment.user_id = current_user.id
     if @comment.save

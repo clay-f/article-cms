@@ -1,49 +1,71 @@
 $(function () {
-    function checkArticleForm() {
-        (function () {
-            $("#article_title").blur(function () {
-                var titleLeng = $(this).var().length;
-                if (titleLeng < 3) {
-                    return false;
-                }
-            });
-        })();
-    }
+    // function checkArticleForm() {
+    //     (function () {
+    //         $("#article_title").blur(function () {
+    //             var titleLeng = $(this).var().length;
+    //             if (titleLeng < 3) {
+    //                 return false;
+    //             }
+    //         });
+    //     })();
+    // }
+    //
+    // function checkCommentForm() {
+    //     (function () {
+    //         $("input#comment_name").blur(function () {
+    //             var $parent = $(this).parent();
+    //             $parent.find("div.text-danger").remove();
+    //             if ($(this).val().length < 3) {
+    //                 $parent.append($("<div class='text-danger'>characters less 3</div>"));
+    //             }
+    //         });
+    //
+    //         $("textarea#comment_description").blur(function () {
+    //             var $parent = $(this).parent();
+    //             $parent.find("div.text-danger").remove();
+    //             if ($(this).val().length < 3) {
+    //                 $parent.append($("<div class='text-danger'>characters less 3 </div>"));
+    //             }
+    //         });
+    //     })();
+    // }
+    //
+    // checkCommentForm();
+    //
+    //
+    // $("div.comments-form input[type=submit]").click(function () {
+    //     (function () {
+    //         var comment_name_len = $("input#comment_name").val().length;
+    //         var comment_desc_len = $("textarea#comment_description").val().length;
+    //
+    //         if (comment_desc_len >= 3 && comment_name_len >= 3) {
+    //             return true
+    //         } else {
+    //             return false;
+    //         }
+    //     })();
+    // });
 
-    function checkCommentForm() {
-        (function () {
-            $("input#comment_name").blur(function () {
-                var $parent = $(this).parent();
-                $parent.find("div.text-danger").remove();
-                if ($(this).val().length < 3) {
-                    $parent.append($("<div class='text-danger'>characters less 3</div>"));
-                }
-            });
+    $("form#new_comment").validate({
+        rules: {
+            comment_name: {
+                required: true,
+                minlength: 3
+            },
 
-            $("textarea#comment_description").blur(function () {
-                var $parent = $(this).parent();
-                $parent.find("div.text-danger").remove();
-                if ($(this).val().length < 3) {
-                    $parent.append($("<div class='text-danger'>characters less 3 </div>"));
-                }
-            });
-        })();
-    }
-
-    checkCommentForm();
-
-
-    $("div.comments-form input[type=submit]").click(function () {
-        (function () {
-            var comment_name_len = $("input#comment_name").val().length;
-            var comment_desc_len = $("textarea#comment_description").val().length;
-
-            if (comment_desc_len >= 3 && comment_name_len >= 3) {
-                return true
-            } else {
-                return false;
+            comment_description: {
+                required: true,
+                minlength: 5
             }
-        })();
-    });
+        },
+        submitHandler: function (form) {
 
+            $.ajax({
+                dataType: 'script',
+                method: $(this).attr('method'),
+                url: $(this).attr('action'),
+                data: $(this).serializeArray()
+            })
+        }
+    });
 });
