@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
   before_action :find_article, only: [:show, :edit, :update, :destroy]
-  before_action :find_catalog, only: [:edit, :create, :new]
+  before_action :find_catalog, only: [:edit, :create, :new, :update]
   before_action :authenticate_user!, except: [:index, :show, :search]
 
   def search
@@ -42,7 +42,6 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-
   end
 
   def update

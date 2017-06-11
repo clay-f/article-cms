@@ -2,7 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+label.error {
+  color: red;
+}
+
 div.article-content {
+
   div.article-list {
     ul li {
       text-align: center;
@@ -12,6 +17,7 @@ div.article-content {
     }
   }
 }
+
 div.article-title {
   h1 {
     text-align: center;
@@ -23,16 +29,12 @@ div.entry-content {
 }
 
 div.entry-footer {
-  form.simple_form.new_comment {
-    label.error {
-      color: red;
-    }
-  }
   ul.comments-list li {
     list-style: none;
     border-bottom: 1px dotted #DDD;
   }
 }
+
 #article_body {
   height: 300px;
 }

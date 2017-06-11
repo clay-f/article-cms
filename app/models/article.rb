@@ -7,6 +7,6 @@ class Article < ApplicationRecord
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
-  validates :title, presence: true, length: { minimum: 1, maximum: 50 } , uniqueness: true
-  validates :body, presence: true, length: { minimum: 3 }
+  validates :title, presence: true, length: { minimum: 3, maximum: 50 } , uniqueness: true
+  validates :body, presence: true, length: { minimum: 5 }
 end
