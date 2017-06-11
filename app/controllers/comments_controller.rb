@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
         format.js { }
       end
     else
-      redirect_to @article, notice: "name or descrip is too short."
+      redirect_to @article, notice: "characters is too short or name has been taken"
     end
   end
 

@@ -38,7 +38,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @comments = @article.comments.paginate(:page => params[:page], per_page: 8)
+    @comments = @article.comments.order("created_at desc").paginate(:page => params[:page], per_page: 8)
   end
 
   def edit
