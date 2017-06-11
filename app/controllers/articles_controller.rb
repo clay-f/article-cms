@@ -26,6 +26,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+
     @article = Article.create(article_params)
     @article.user_id = current_user.id
 
@@ -61,7 +62,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :body, :user_id, :avatar, :catalog_id)
+    params.require(:article).permit(:title, :body, :avatar, :catalog_id)
   end
 
   def find_article
@@ -69,6 +70,7 @@ class ArticlesController < ApplicationController
   end
 
   def find_catalog
-    @catalog = Catalog.all.map { |t| [t.name, t.id] }
+    @catalog = Catalog.all.map {|t| [t.name, t.id]}
   end
+
 end

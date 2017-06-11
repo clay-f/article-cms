@@ -7,7 +7,10 @@ class CommentsController < ApplicationController
     @comment = @article.comments.create(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      redirect_to @article, notice: "created succeed."
+      respond_to do |format|
+        format.html { redirect_to @article, notice: "creaed succeed"}
+        format.js { }
+      end
     else
       redirect_to @article, notice: "name or descrip is too short."
     end
@@ -16,7 +19,10 @@ class CommentsController < ApplicationController
   def destroy
     @comment = @article.comments.find(params[:id])
     if @comment.destroy
-      redirect_to @article
+      respond_to do |format|
+        format.html { redirect_to @article }
+        format.js { }
+      end
     end
   end
 

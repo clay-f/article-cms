@@ -61,6 +61,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'redcarpet', '~> 3.4'
 gem 'coderay', '~> 1.1', '>= 1.1.1'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+gem 'pry', '~> 0.10.4'
 
 group :development, :test do
   gem 'sqlite3'
