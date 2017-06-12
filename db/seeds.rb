@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Catalog.create([
+    {name: "History"},
+    {name: "Biography"},
+    {name: "Technology"}
+])
