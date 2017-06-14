@@ -21,7 +21,7 @@
       <% end %>
       <div class="article-content">
         <div class="article-img">
-          <% if @article.avatar? %>
+          <% if @article.avatar.present? %>
          <span class="thumbnail">
               <%= image_tag(@article.avatar) %>
            </span>
