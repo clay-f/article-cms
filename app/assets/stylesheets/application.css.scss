@@ -2,6 +2,9 @@
 @import "bootstrap";
 @import "articles";
 @import "search";
+@import "trix";
+@import "syntax-highlighter-rails/shCore";
+@import "syntax-highlighter-rails/shThemeDefault";
 body {
   background-color: #ECEFF1;
   ul.nav.navbar-nav {

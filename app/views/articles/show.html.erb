@@ -7,7 +7,7 @@
       </div>
       <% if @article.catalog.present? %>
           <div class="article-catalog-type">
-            <p class="help-block">
+           <p class="help-block">
               <span>
                posted on <%= @article.created_at.strftime("%Y-%m-%d") %>
              </span>
@@ -28,7 +28,7 @@
               <% end %>
           </div>
           <div class="content">
-              <%= markdown @article.body %>
+              <%= @article.body.html_safe %>
           <% if !current_user.blank? %>
               <% if @article.user_id == current_user.id %>
                   <div id="edit article" class="text-center">

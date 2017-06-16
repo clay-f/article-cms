@@ -1,4 +1,5 @@
 $(function () {
+    SyntaxHighlighter.all()
 
     $("form#new_comment").validate({
         rules: {

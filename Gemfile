@@ -71,3 +71,5 @@ end
 group :production, :staging do
   gem 'pg'
 end
+gem 'trix', '~> 0.10.1'
+gem 'syntax-highlighter-rails'
