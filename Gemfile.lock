@@ -192,8 +192,6 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.3.13)
-    syntax-highlighter-rails (3.0.83.1.1)
-      railties
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.7)
@@ -248,7 +246,6 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
-  syntax-highlighter-rails
   trix (~> 0.10.1)
   turbolinks (~> 5)
   tzinfo-data

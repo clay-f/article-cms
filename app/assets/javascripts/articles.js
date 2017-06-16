@@ -1,6 +1,5 @@
 $(function () {
-    SyntaxHighlighter.all()
-
+    $("pre").addClass("prettyprint")
     $("form#new_comment").validate({
         rules: {
             "comment[name]": {

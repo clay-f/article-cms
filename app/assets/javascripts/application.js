@@ -15,6 +15,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require trix
-//= require syntax-highlighter-rails/shCore
-//= require syntax-highlighter-rails/shBrushCpp
+//= require run_prettify
 //= require_tree .
