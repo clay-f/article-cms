@@ -4,7 +4,7 @@
         <ul class="list-group">
           <% @articles.each do |article| %>
               <li class="list-group-item">
-                <%= link_to truncate(article.title, length: 30), article, class: "article_title text-center" %>
+                <%= link_to truncate(article.title, length: 30), article, class: "article_title text-center", target: :_self %>
               </li>
           <% end %>
         </ul>

@@ -1,5 +1,14 @@
 $(function () {
-    $("pre").addClass("prettyprint")
+    $('pre').each(function() {
+        $(this).addClass('prettyprint');
+    });
+
+    $('pre').filter(function() {
+        return $(this).has('.prettyprint').length > 0;
+    }).each(function() {
+        $(this).addClass('prettyprint');
+    });
+
     $("form#new_comment").validate({
         rules: {
             "comment[name]": {
