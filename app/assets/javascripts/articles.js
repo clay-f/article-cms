@@ -1,11 +1,6 @@
 $(function () {
-    $('pre').each(function() {
-        $(this).addClass('prettyprint');
-    });
 
-    $('pre').filter(function() {
-        return $(this).has('.prettyprint').length > 0;
-    }).each(function() {
+    $("pre").each(function () {
         $(this).addClass('prettyprint');
     });
 
