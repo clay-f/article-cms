@@ -1,8 +1,6 @@
 $(function () {
 
-    $("pre").each(function () {
-        $(this).addClass('prettyprint');
-    });
+    $("pre").filter(":not(.pre)").addClass("prettyprint");
 
     $("form#new_comment").validate({
         rules: {
