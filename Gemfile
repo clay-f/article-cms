@@ -46,3 +46,4 @@ gem "factory_bot_rails", "~> 4.0"
 gem 'trix', '~> 0.10.1'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
+gem "font-awesome-rails"
