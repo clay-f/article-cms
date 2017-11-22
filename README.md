@@ -1,6 +1,2 @@
-# README
-
-###### todo
-* add user avater
-
-* add each user send message module
+### todo
+* message model 有多余的 `message_states` 字段, 需要删除

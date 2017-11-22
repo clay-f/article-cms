@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 20171122125643) do
     t.integer "user_id"
     t.integer "users"
     t.string "receive_name"
-    t.integer "message_state_id"
-    t.integer "message_states"
+    t.integer "message_state_id", default: 2
+    t.integer "message_states", default: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["receive_name"], name: "index_messages_on_receive_name"
