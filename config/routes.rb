@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
-  resources :messages
-    devise_for :users
+  root 'articles#index'
 
-    resources :articles do
-        collection do
-            get "search"
-        end
-        resources :comments, except: [:index, :new]
+  devise_for :users
+
+  resources :user do
+    resources :messages, except: [:edit, :update]
+  end
+
+  resources :articles do
+    collection do
+      get "search"
     end
-
-    root 'articles#index'
+    resources :comments, except: [:index, :new]
+  end
 end
