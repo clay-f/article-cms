@@ -2,11 +2,14 @@ begin
   Catalog.delete_all
   User.delete_all
   Article.delete_all
+  MessageState.delete_all
 
   Catalog.create([
     {name: "History"},
     {name: "Biography"},
     {name: "Technology"}])
+
+  MessageState.create([{state: "read"}, {state: "unread"}])
 
   user = User.create(name: "foo", password: "123456", email: "foo@qq.com", avatar_file_name: "miss.png")
   user.articles.create(title: "foo", body: "foo foo", catalog_id: 1)
