@@ -26,7 +26,6 @@ gem 'will_paginate'
 gem 'redcarpet'
 gem 'coderay', '~> 1.1', '>= 1.1.1'
 gem 'will_paginate-bootstrap'
-gem "factory_bot_rails", "~> 4.0"
 gem 'trix', '~> 0.10.1'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
@@ -45,5 +44,6 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry-byebug'
   gem 'sqlite3'
+  gem "factory_bot_rails", "~> 4.0"
   gem 'minitest', '~> 5.10', '>= 5.10.3'
 end

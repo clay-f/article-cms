@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
     receive_user = User.find(params[:message].fetch(:receive_name, false))
     tmp = message_parameter
     if current_user.messages.create(body: tmp.fetch(:body), user_id: current_user.id, receive_name: tmp.fetch(:receive_name))
-      redirect_to root_path
+      redirect_tok root_path
     else
       render "new"
     end

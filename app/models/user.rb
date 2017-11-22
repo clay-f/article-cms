@@ -37,4 +37,8 @@ class User < ApplicationRecord
     end
   end
 
+  def to_hash
+    {name: self.name, password: self.password, email: self.email, id: self.id}
+  end
+
 end
