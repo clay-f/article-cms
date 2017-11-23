@@ -1,19 +1,9 @@
-<li id="comment<%= comment.id %>">
-  <div class="comment-head">
-    <p>
-      Name:
-      <%= comment.name %>
-    </p>
-  </div>
-  <div class="comment-content">
-    <p>
-      description:
-      <%= comment.description %>
-    </p>
-  </div>
-  <% if user_signed_in? %>
-      <% if @article.user_id == current_user.id %>
-          <%= link_to 'destroy', [comment.article, comment], method: :delete, remote: true, class: "btn btn-default" %>
-      <% end %>
-  <% end %>
-</li>
+<h4 class="card-title">
+    Name: <%= comment.name %>
+</h4>
+<p class="card-text"> description: <%= comment.description %> </p>
+<% if user_signed_in? %>
+    <% if @article.user_id == current_user.id %>
+        <%= link_to 'destroy', [comment.article, comment], method: :delete, remote: true, class: "btn btn-danger" %>
+    <% end %>
+<% end %>

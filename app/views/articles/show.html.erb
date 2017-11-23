@@ -44,14 +44,15 @@
   </div>
 
   <div class="entry-footer">
-    <div class="panel panel-default">
-      <div class="panel panel-body" id="comments">
+    <div class="card">
+      <div class="card-header" id="comments">
         <div class="comments-title">
-          <h3>《<%= @article.title%>》Comments</h3>
+          <h4>《<%= @article.title%>》Comments</h4>
         </div>
-        <ul class="comments-list">
+      </div>
+        <div class="card-body">
           <%= render @comments %>
-        </ul>
+        </div>
         <% if user_signed_in? %>
             <div class="comments-form">
               <p>
@@ -64,9 +65,8 @@
         <% end %>
         <div class="comment_paginate">
           <p>
-            <%= will_paginate @comments, renderer: BootstrapPagination::Rails %>
+            <%= will_paginate(@comments, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %>
           </p>
-        </div>
         </div>
       </div>
     </div>

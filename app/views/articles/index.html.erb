@@ -14,5 +14,7 @@
   </div>
 </article>
 <div class="article-footer">
-  <%= will_paginate @articles, renderer: BootstrapPagination::Rails, previous_label: "&larr;Previous", next_label: "Next&rarr;", inner_window: 2, outer_window: 0 %>
+  <br>
+  <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %>
+  </div>
 </div>
