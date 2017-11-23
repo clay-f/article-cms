@@ -41,7 +41,10 @@ group :development do
 end
 
 group :development, :test do
+  gem 'faraday', '~> 0.13.1'
   gem 'byebug', platform: :mri
+  gem 'capybara', '~> 2.16', '>= 2.16.1'
+  gem 'selenium-webdriver', '~> 3.7'
   gem 'pry-byebug'
   gem 'sqlite3'
   gem "factory_bot_rails", "~> 4.0"
