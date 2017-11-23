@@ -2,6 +2,7 @@ class Article < ApplicationRecord
   searchkick
   has_many :comments, dependent: :destroy
   belongs_to :catalog
+  belongs_to :user
 
   has_attached_file :avatar
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/

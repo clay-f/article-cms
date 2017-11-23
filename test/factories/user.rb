@@ -8,7 +8,7 @@ FactoryBot.define do
 
   factory :foo, class: User do
     id 2
-    name "foo"
+    name Faker::Name.name
     password "123456"
     email "foo@qq.com"
   end

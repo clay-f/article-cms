@@ -84,6 +84,8 @@ GEM
     factory_bot_rails (4.8.2)
       factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
+    faker (1.8.4)
+      i18n (~> 0.5)
     faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
@@ -166,7 +168,6 @@ GEM
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    redcarpet (3.4.0)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -234,10 +235,10 @@ DEPENDENCIES
   awesome_print
   bootstrap (~> 4.0.0.beta2.1)
   byebug
-  coderay (~> 1.1, >= 1.1.1)
   coffee-rails (~> 4.2)
   devise
   factory_bot_rails (~> 4.0)
+  faker (~> 1.8, >= 1.8.4)
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
@@ -248,7 +249,6 @@ DEPENDENCIES
   pry-byebug
   puma (~> 3.11)
   rails (~> 5.1.0)
-  redcarpet
   sass-rails (~> 5.0)
   searchkick (~> 2.4)
   simple_form

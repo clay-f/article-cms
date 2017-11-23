@@ -23,8 +23,8 @@ gem "paperclip", "~> 5.0.0"
 gem 'simple_form'
 gem 'searchkick', '~> 2.4'
 gem 'will_paginate'
-gem 'redcarpet'
-gem 'coderay', '~> 1.1', '>= 1.1.1'
+# gem 'redcarpet'
+# gem 'coderay', '~> 1.1', '>= 1.1.1'
 gem 'will_paginate-bootstrap'
 gem 'trix', '~> 0.10.1'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
@@ -46,4 +46,5 @@ group :development, :test do
   gem 'sqlite3'
   gem "factory_bot_rails", "~> 4.0"
   gem 'minitest', '~> 5.10', '>= 5.10.3'
+  gem 'faker', '~> 1.8', '>= 1.8.4'
 end
