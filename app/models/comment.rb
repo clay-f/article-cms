@@ -7,6 +7,6 @@ class Comment < ApplicationRecord
   validates :description, presence: true, length: { minimum: 3 }
 
   def to_hash
-    {name: self.name, description: self.description}
+    {id: self.id, name: self.name, description: self.description}
   end
 end

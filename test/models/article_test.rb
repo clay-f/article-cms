@@ -4,7 +4,7 @@ class ArticleTest < ActiveSupport::TestCase
     @article = build(:article)
   end
 
-  test "get article with article and catalog" do
-    @article
+  test "get article" do
+    refute_nil @article
   end
 end

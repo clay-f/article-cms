@@ -7,7 +7,7 @@ FactoryBot.define do
     association :user, factory: :user
   end
 
-  factory :shanguoyanyi do
+  factory :shanguoyanyi, class: Article do
     id 2
     title Faker::Book.title
     body  Faker::Witcher.quote
