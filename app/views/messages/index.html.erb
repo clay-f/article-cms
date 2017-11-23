@@ -1,0 +1,23 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">发送方</th>
+            <th scope="col">Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @messages.each do |msg|  %>
+            <tr>
+                <% if msg.message_state_id == 2 %>
+                    <th><i class="fa fa-envelope" aria-hidden="true"></i></th>
+                <% else %>
+                    <th><i class="fa fa-envelope-o" aria-hidden="true"></i></th>
+                <% end %>
+                <td><%= msg.user.name %></td>
+                <td><%= link_to truncate(msg.body, length: 15), user_message_path(current_user, msg) %></td>
+                <td><%= link_to 'delete', user_message_path(current_user, msg), method: :delete %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

@@ -29,7 +29,7 @@
            </a>
            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to 'Profile', edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to 'message list', user_messages_path(current_user), class: "dropdown-item" %>
+            <%= link_to "message list", user_messages_path(current_user), class: "dropdown-item"%>
             <%= link_to 'new message', new_user_message_path(current_user), class: "dropdown-item" %>
             <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
            </div>

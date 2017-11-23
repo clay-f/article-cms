@@ -23,12 +23,13 @@ gem "paperclip", "~> 5.0.0"
 gem 'simple_form'
 gem 'searchkick', '~> 2.4'
 gem 'will_paginate'
-# gem 'redcarpet'
-# gem 'coderay', '~> 1.1', '>= 1.1.1'
+gem 'redcarpet'
+gem 'coderay', '~> 1.1', '>= 1.1.1'
 gem 'will_paginate-bootstrap'
 gem 'trix', '~> 0.10.1'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
+gem "font-awesome-rails"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
