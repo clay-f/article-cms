@@ -2,9 +2,9 @@ class CreateMessages < ActiveRecord::Migration[5.1]
   def change
     create_table :messages do |t|
       t.text :body
-      t.integer :user_id, :users, foreign_key: true
+      t.integer :user_id
       t.string :receive_name
-      t.integer :message_state_id, :message_states, foreign_key: true, default: 2
+      t.integer :message_state_id
 
       t.timestamps
     end
