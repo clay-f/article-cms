@@ -25,5 +25,5 @@ production:
   encoding: utf-8
   database: blog_production
   pool: 30
-  username: foo
-  password: 1
+  username: <%= ENV['BLOG_BLOG_PRODUCTION_USER_NAME'] %>
+  password: <%= ENV['BLOG_BLOG_PRODUCTION_PASSWD'] %>
