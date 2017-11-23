@@ -29,7 +29,7 @@ class MessagesController < ApplicationController
   def destroy
     message = Message.find(params[:id])
     if message.destroy
-      redirect_to user_messages_path(current_user)
+      redirect_to user_messages_path
     end
   end
 
