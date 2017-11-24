@@ -1,6 +1,6 @@
 <%= simple_form_for @article, html: { multipart: true } do |f| %>
     <%= f.input :title %>
-    <%= f.select :catalog_id, @catalog %>
+    Type: <%= f.select :catalog_id, @catalog %>
     <%=	f.input :avatar  %>
     <div class="form-group">
         <%= f.input :body, as: :trix_editor %>
