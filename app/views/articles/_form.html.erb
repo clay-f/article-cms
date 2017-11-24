@@ -3,7 +3,7 @@
     <%= f.select :catalog_id, @catalog %>
     <%=	f.input :avatar  %>
     <div class="form-group">
-        <%= f.trix_editor :body %>
+        <%= f.input :body, as: :trix_editor %>
     </div>
     <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>

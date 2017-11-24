@@ -1,6 +1,5 @@
-<div class="panel panel-default">
-  <div class="panel-body">
-    <div class="search_list">
+<section>
+  <div class="search_list">
       <% if !@articles.blank? %>
           <ul class="list-group">
             <% @articles.each do |t| %>
@@ -8,10 +7,10 @@
             <% end %>
           </ul>
       <% else %>
-          <div class="well">
-            <p>oh, bro, you late one step.</p>
+          <div class="jumbotron">
+            <h3 class="header">oh, bro, you late one step.</h3>
           </div>
       <% end %>
     </div>
-  </div>
-</div>
+</section>
+  

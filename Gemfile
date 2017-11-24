@@ -26,7 +26,7 @@ gem 'will_paginate'
 gem 'redcarpet'
 gem 'coderay', '~> 1.1', '>= 1.1.1'
 gem 'bootstrap-will_paginate'
-gem 'trix', '~> 0.10.1'
+gem 'trix', '~> 0.11'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
 gem "font-awesome-rails"

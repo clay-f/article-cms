@@ -1,15 +1,20 @@
 <section>
-    <h2>New message</h2>
-    <%= form_for([current_user, @message]) do |f| %>
-        <div class="form-group">
-            <label>User:</label>
-            <%= f.select :receive_name, @users %>
-        </div>
-        <div class="form-group">
-            <%= f.label :body %>:
-            <%= f.text_field :body, class: "form-control" %>
-        </div>
+    <div class="card">
+        <div class="card-header">New message</div>
+        <div class="card-body">
+            <%= form_for([current_user, @message]) do |f| %>
+                <div class="form-group">
+                    <label>Send user:</label>
+                    <%= f.select :receive_name, @users %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :body %>:
+                    <%= f.text_field :body, class: "form-control" %>
+                </div>
 
-        <%= f.submit "Send message", class: "btn btn-primary" %>
-    <% end %>
+                <%= f.submit "Send message", class: "btn btn-primary" %>
+            <% end %>
+        </div>       
+    </div>
+        
 </section>
