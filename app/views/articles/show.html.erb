@@ -1,74 +1,52 @@
-<div class="main">
-  <div class="panel panel-default" id="main_text">
-
-    <div class="entry-content">
-      <div class="article-title">
-        <h1><%= @article.title %></h1>
-      </div>
+<main>
+    <section>
+      <h1><%= @article.title %></h1>
       <% if @article.catalog.present? %>
           <div class="article-catalog-type">
-           <p class="help-block">
-              <span>
-               posted on <%= @article.created_at.strftime("%Y-%m-%d") %>
-             </span>
-              <br>
-              <span>
-                 Type:
-                <%= @article.catalog.name %>
-              </span>
-            </p>
+             <p class="help-block">
+                <span> posted on <%= @article.created_at.strftime("%Y-%m-%d") %> </span>
+                <br>
+                <span> Type: <%= @article.catalog.name %> </span>
+              </p>
           </div>
       <% end %>
-      <div class="article-content">
-          <div class="article-img">
-              <% if @article.avatar.present? %>
-                  <span class="img-thumbnail">
-                      <%= image_tag @article.avatar, style: "height:350px;width:auto;" %>
-                  </span>
-              <% end %>
-          </div>
-          <div class="content">
-              <%= @article.body.html_safe %>
-          <% if !current_user.blank? %>
-              <% if @article.user_id == current_user.id %>
-                  <div id="edit article" class="text-center">
-                    <%= link_to 'back', new_article_path, class: "btn btn-primary" %>
-                    <%= link_to 'edit', edit_article_path(@article), class: "btn btn-primary", target: :_self %>
-                    <%= link_to 'delete', article_path(@article), method: :delete, data: {confirm: "are you sure?"}, class: "btn btn-danger" %>
-                  </div>
-              <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+    </section>
+    
+    <article>
+      <% if @article.avatar.present? %>
+        <figure>
+            <%= image_tag @article.avatar, style: "height:350px;width:auto;" %>
+        </figure>
+      <% end %>
+      <p class="text-justify"> <%= @article.body.html_safe %> </p>
 
-  <div class="entry-footer">
-    <div class="card">
-      <div class="card-header" id="comments">
-        <div class="comments-title">
-          <h4>《<%= @article.title%>》Comments</h4>
+      <% if !current_user.blank? %>
+        <% if @article.user_id == current_user.id %>
+            <%= link_to 'back', new_article_path, class: "btn btn-primary" %>
+            <%= link_to 'edit', edit_article_path(@article), class: "btn btn-primary", target: :_self %>
+            <%= link_to 'delete', article_path(@article), method: :delete, data: {confirm: "are you sure?"}, class: "btn btn-danger" %> 
+            <% end %>
+      <% end %>
+    </article>
+
+    <br>
+
+    <section>
+      <div class="card"> <h4 class="card-header">《<%= @article.title%>》Comments</h4> </div>
+      <div class="card-body"> <%= render @comments %> </div>
+      <br>
+    </section>
+
+    <section>
+      <% if user_signed_in? %>
+        <div class="card"> <div class="card-header"> 添加评论 </div>
+          <div class="card-body"> <%= render "comments/form" %> </div>
         </div>
-      </div>
-        <div class="card-body">
-          <%= render @comments %>
-        </div>
-        <% if user_signed_in? %>
-            <div class="comments-form">
-              <p>
-                <%= render "comments/form" %>
-              </p>
-        <% else %>
-            <div class="well">
-              <p><%= link_to '(You must log in or sign up to reply here.)', new_user_session_path, class: "btn btn-default" %></p>
-            </div>
-        <% end %>
-        <div class="comment_paginate">
-          <p>
-            <%= will_paginate(@comments, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+      <% else %>
+        <div class="jumbotron">
+         <p class="head"><%= link_to '(You must log in or sign up to reply here.)', new_user_session_path, class: "btn btn-default" %></p>
+        </div> 
+      <% end %>
+    </section>
+    <p> <%= will_paginate(@comments, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %> </p>
+</main>
