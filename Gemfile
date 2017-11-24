@@ -9,22 +9,23 @@ group :production, :staging do
   gem 'pg', '~> 0.21.0'
 end
 
-gem 'rails', '~> 5.1.0'
+gem 'rails', '~> 5.1', '>= 5.1.4'
 gem 'puma', '~> 3.11'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
+gem 'sass-rails', '~> 5.0', '>= 5.0.7'
+gem 'uglifier', '~> 3.2'
+gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
+gem 'turbolinks', '~> 5.0', '>= 5.0.1'
+gem 'bundler', '~> 1.16'
+gem 'jbuilder', '~> 2.7'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
-gem "paperclip", "~> 5.0.0"
+gem 'paperclip', '~> 5.1'
 gem 'simple_form'
 gem 'searchkick', '~> 2.4'
 gem 'will_paginate'
 gem 'redcarpet'
-gem 'coderay', '~> 1.1', '>= 1.1.1'
+gem 'coderay', '~> 1.1', '>= 1.1.2'
 gem 'bootstrap-will_paginate'
 gem 'trix', '~> 0.11'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
@@ -32,12 +33,12 @@ gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
 gem "font-awesome-rails"
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '~> 3.0.5'
+  gem 'web-console', '~> 3.5', '>= 3.5.1'
+  gem 'listen', '~> 3.1', '>= 3.1.5'
   gem 'spring'
   gem 'pry', '~> 0.11.3'
   gem 'awesome_print'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen', '~> 2.0', '>= 2.0.1'
   # gem 'rack-mini-profiler'
 end
 
