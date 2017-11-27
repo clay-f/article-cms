@@ -1,6 +1,6 @@
 <main>
     <section>
-      <h1><%= @article.title %></h1>
+      <h1 class="text-center"><%= @article.title %></h1>
       <% if @article.catalog.present? %>
           <div class="article-catalog-type">
              <p class="help-block">
@@ -20,21 +20,24 @@
       <% end %>
       
       <p class="text-justify"> <%= @article.body.html_safe %> </p>
-
-      <% if !current_user.blank? %>
-        <% if @article.user_id == current_user.id %>
-            <%= link_to 'back', new_article_path, class: "btn btn-primary" %>
-            <%= link_to 'edit', edit_article_path(@article), class: "btn btn-primary", target: :_self %>
-            <%= link_to 'delete', article_path(@article), method: :delete, data: {confirm: "are you sure?"}, class: "btn btn-danger" %> 
+      <div class="text-center">
+         <% if !current_user.blank? %>
+            <% if @article.user_id == current_user.id %>
+              <%= link_to 'back', new_article_path, class: "btn btn-primary" %>
+              <%= link_to 'edit', edit_article_path(@article), class: "btn btn-primary", target: :_self %>
+              <%= link_to 'delete', article_path(@article), method: :delete, class: "btn btn-danger" %> 
             <% end %>
-      <% end %>
+        <% end %>
+      </div>
     </article>
 
     <br>
-
     <section>
-      <div class="card"> <h4 class="card-header">《<%= @article.title%>》Comments</h4> </div>
-      <div class="card-body"> <%= render @comments %> </div>
+      <div class="card text-center"> <h6 class="card-header">《<%= @article.title%>》Comments</h6>
+      <div class="card-body text-left">
+         <%= render @comments %> 
+      </div>
+     </div>
       <br>
     </section>
 
