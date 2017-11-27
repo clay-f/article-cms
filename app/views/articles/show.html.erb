@@ -18,6 +18,7 @@
             <%= image_tag @article.avatar, style: "height:350px;width:auto;", class: "img-fluid img-thumbnail rounded mx-auto d-block" %>
         </figure>
       <% end %>
+      
       <p class="text-justify"> <%= @article.body.html_safe %> </p>
 
       <% if !current_user.blank? %>

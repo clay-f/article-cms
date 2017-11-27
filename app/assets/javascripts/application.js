@@ -15,6 +15,6 @@
 //= require bootstrap
 //= require jquery_ujs
 //= require turbolinks
-//= require trix
 //= require run_prettify
+//= require trix
 //= require_tree .

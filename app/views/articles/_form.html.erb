@@ -2,8 +2,6 @@
     <%= f.input :title %>
     Type: <%= f.select :catalog_id, @catalog %>
     <%=	f.input :avatar  %>
-    <div class="form-group">
-        <%= f.input :body, as: :trix_editor %>
-    </div>
+    <%= f.input :body, as: :trix_editor %>
     <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
