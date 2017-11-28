@@ -43,15 +43,9 @@
     </section>
 
     <section>
-      <% if user_signed_in? %>
         <div class="card"> <div class="card-header"> 添加评论 </div>
           <div class="card-body"> <%= render "comments/form" %> </div>
         </div>
-      <% else %>
-        <div class="card text-center">
-         <p class="card-body"><%= link_to '(You must log in or sign up to reply here.)', new_user_session_path, class: "btn btn-default text-muted" %></p>
-        </div> 
-      <% end %>
     </section>
     <p> <%= will_paginate(@comments, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %> </p>
 </main>
