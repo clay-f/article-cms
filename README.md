@@ -11,9 +11,9 @@
 * `rake db:migrate`
 * `rake db:seed`
 * `rails s`
+* Open browser go to `http://localhost:3000`
 
 #### Data model
-
 * Uesr
 * Catalog
 * Article
