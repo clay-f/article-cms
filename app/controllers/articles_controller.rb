@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-
   before_action :find_article, only: [:show, :edit, :update, :destroy]
   before_action :find_catalog, only: [:edit, :create, :new, :update]
   before_action :authenticate_user!, except: [:index, :show, :search]
@@ -13,12 +12,18 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    if params[:catalog].blank?
-      @articles = Article.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
-    else
-      @catalog_id = Catalog.find_by(name: params[:catalog]).id
-      @articles = Article.where(catalog_id: @catalog_id).paginate(page: params[:page], per_page: 10)
-    end
+    @articles = 
+      if params[:catalog].blank?
+        Article.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+      else
+        catalog_id = Catalog.find_by(name: params[:catalog]).id
+        Article.where(catalog_id: catalog_id).paginate(page: params[:page], per_page: 10)
+      end
+
+      respond_to do |format|
+        format.html
+        format.json { render json: @articles, only: [:id, :title, :body]}
+      end
   end
 
   def new
@@ -26,7 +31,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-
     @article = Article.create(article_params)
     @article.user_id = current_user.id
 
@@ -39,6 +43,11 @@ class ArticlesController < ApplicationController
 
   def show
     @comments = @article.comments.order("created_at desc").paginate(:page => params[:page], per_page: 4)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: [@article, @comments], except: [:created_at, :updated_at] }
+    end
   end
 
   def edit
