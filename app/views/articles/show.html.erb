@@ -33,17 +33,17 @@
     <br>
     <br>
 
+    <% if @comments.size > 0 %>
+      <section>
+        <div class="card text-center">
+         <div class="card-body text-left"> <%= render @comments %> </div>
+       </div>
+        <br>
+      </section>
+    <% end %>
+  
     <section>
-      <div class="card text-center"> <h6 class="card-header">《<%= @article.title%>》Comments</h6>
-      <div class="card-body text-left">
-         <%= render @comments %> 
-      </div>
-     </div>
-      <br>
-    </section>
-
-    <section>
-        <div class="card"> <div class="card-header"> 添加评论 </div>
+        <div class="card"> <div class="card-header"> 发表评论 </div>
           <div class="card-body"> <%= render "comments/form" %> </div>
         </div>
     </section>
