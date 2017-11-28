@@ -30,8 +30,9 @@
         <% end %>
       </div>
     </article>
-
     <br>
+    <br>
+
     <section>
       <div class="card text-center"> <h6 class="card-header">《<%= @article.title%>》Comments</h6>
       <div class="card-body text-left">
@@ -47,8 +48,8 @@
           <div class="card-body"> <%= render "comments/form" %> </div>
         </div>
       <% else %>
-        <div class="jumbotron">
-         <p class="head"><%= link_to '(You must log in or sign up to reply here.)', new_user_session_path, class: "btn btn-default" %></p>
+        <div class="card text-center">
+         <p class="card-body"><%= link_to '(You must log in or sign up to reply here.)', new_user_session_path, class: "btn btn-default text-muted md-2" %></p>
         </div> 
       <% end %>
     </section>
