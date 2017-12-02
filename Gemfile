@@ -29,6 +29,7 @@ gem 'trix', '~> 0.11'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
 gem "font-awesome-rails"
+gem 'friendly_id', '~> 5.1.0'
 
 group :development do
   gem 'web-console', '~> 3.5', '>= 3.5.1'

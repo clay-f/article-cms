@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :find_article, only: [:show, :edit, :update, :destroy]
+  before_action :find_article, only: [:edit, :update, :destroy]
   before_action :find_catalog, only: [:edit, :create, :new, :update]
   before_action :authenticate_user!, except: [:index, :show, :search]
 
@@ -14,10 +14,10 @@ class ArticlesController < ApplicationController
   def index
     @articles = 
       if params[:catalog].blank?
-        Article.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+        Article.friendly.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
       else
         catalog_id = Catalog.find_by(name: params[:catalog]).id
-        Article.where(catalog_id: catalog_id).paginate(page: params[:page], per_page: 10)
+        Article.friendly.where(catalog_id: catalog_id).paginate(page: params[:page], per_page: 10)
       end
 
       respond_to do |format|
@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.create(article_params)
+    @article = Article.create!(article_params)
     @article.user_id = current_user.id
 
     if @article.save
@@ -42,6 +42,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @article = Article.friendly.find(params[:id])
     @comments = @article.comments.order("created_at desc").paginate(:page => params[:page], per_page: 4)
 
     respond_to do |format|
@@ -71,11 +72,11 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :body, :avatar, :catalog_id)
+    params.require(:article).permit(:title, :body, :avatar, :catalog_id, :slug)
   end
 
   def find_article
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
   end
 
   def find_catalog
