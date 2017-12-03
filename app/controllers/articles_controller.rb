@@ -12,18 +12,18 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = 
-      if params[:catalog].blank?
-        Article.friendly.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
-      else
-        catalog_id = Catalog.find_by(name: params[:catalog]).id
-        Article.friendly.where(catalog_id: catalog_id).paginate(page: params[:page], per_page: 10)
-      end
+    @articles =
+    if params[:catalog].blank?
+      Article.friendly.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+    else
+      catalog_id = Catalog.find_by(name: params[:catalog]).id
+      Article.friendly.where(catalog_id: catalog_id).paginate(page: params[:page], per_page: 10)
+    end
 
-      respond_to do |format|
-        format.html
-        format.json { render json: @articles, only: [:id, :title, :body]}
-      end
+    respond_to do |format|
+      format.html
+      format.json { render json: @articles, only: [:id, :title, :body]}
+    end
   end
 
   def new
@@ -31,11 +31,10 @@ class ArticlesController < ApplicationController
   end
 
   def create
-  if current_user.articles.create(article_params)
-      redirect_to articles_path
-    else
-      render 'new'
-    end
+    tmp_article_params = article_params
+    tmp_article_params[:user_id] = current_user.id
+    @article = Article.create(tmp_article_params)
+    redirect_to article_path(@article)
   end
 
   def show
