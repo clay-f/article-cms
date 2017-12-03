@@ -31,11 +31,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article.user_id = current_user.id
-    @article = Article.create!(article_params)
-
-    if @article.save
-      redirect_to @article
+  if current_user.articles.create(article_params)
+      redirect_to articles_path
     else
       render 'new'
     end

@@ -1,4 +1,3 @@
-require 'faker'
 begin
   Catalog.delete_all
   User.delete_all
