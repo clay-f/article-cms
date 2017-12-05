@@ -12,7 +12,7 @@
     <div class="card-body">
         <%= form_for([current_user, Message.new]) do |f| %>
             <%= f.text_field :body, placeholder: "快速回复: "%>
-            <%= f.hidden_field :receive_name, value: @message.user.name %>
+            <%= f.hidden_field :receive_name, value: @message.user.id %>
             <%= f.submit :'发送'%>
         <% end %>
         <%= link_to "delete", user_message_path([@message, current_user]), method: :delete %>

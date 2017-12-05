@@ -29,7 +29,9 @@
            </a>
            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to 'Profile', edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Message list", user_messages_path(current_user), class: "dropdown-item"%>
+            <a href="/user/<%= current_user.id %>/messages" class="dropdown-item">
+              Message list<span class="badge badge-light"><%= Message.where(receive_name: current_user.id.to_s).select { |i| i.message_state_id == 2 }.size %></span>
+            </a>
             <%= link_to 'New message', new_user_message_path(current_user), class: "dropdown-item" %>
             <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
            </div>

@@ -2,8 +2,8 @@
   <div class="search_list">
       <% if !@articles.blank? %>
           <ul class="list-group">
-            <% @articles.each do |t| %>
-                <li class="list-group-item"> <%= link_to t.title, t %></li>
+            <% @articles.each do |article| %>
+                 <%= link_to article.title, article, class: "list-group-item list-group-item-action" %>
             <% end %>
           </ul>
       <% else %>
