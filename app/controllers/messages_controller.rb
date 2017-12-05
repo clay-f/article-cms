@@ -11,19 +11,21 @@ class MessagesController < ApplicationController
   end
 
   def create
-    receive_user = User.find(params[:message].fetch(:receive_name, false))
+    receive_user = User.find_by(name: (params[:message].fetch(:receive_name, false)))
     tmp = message_parameter
     if current_user.messages.create(body: tmp.fetch(:body), user_id: current_user.id, receive_name: tmp.fetch(:receive_name), message_state_id: 2)
-      redirect_to root_path
+      redirect_to user_messages_path
     else
       render "new"
     end
   end
 
   def show
-    message = Message.find(params[:id])
-    message.message_state_id = 1
-    message.save
+    @message = Message.find(params[:id])
+    if @message.message_state_id == 2
+      @message.message_state_id = 1 
+      @message.save
+    end
   end
 
   def destroy
