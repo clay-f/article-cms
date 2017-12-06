@@ -8,10 +8,10 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   test "application header" do
     visit(root_path)
-    assert click_link("sign in")
+    assert click_link("Sign in")
     assert click_button("Search")
     assert click_on("Search")
-    assert click_link("sign up")
+    assert click_link("Sign up")
     assert fill_in("search", with: "golden")
     assert page.has_selector?("form")
     assert find_field("search").value
