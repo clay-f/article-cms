@@ -21,7 +21,3 @@
 * Message
 * MessageState
 
-#### blog module
-
-* user-article-comment
-* user-message
