@@ -20,7 +20,7 @@ check_required_port() {
     if [[ "$?" -eq 0 ]]; then
         echo "your 3000 port is opening"
         printf "close it now..."
-        kill -9 $($3 | cut -c 9-13)
+        kill -9 $($3 | grep 3000 | cut -c 9-13)
     fi
     echo "check over"
 }
