@@ -2,7 +2,8 @@
 @import "articles";
 @import "search";
 @import "trix";
-@import "font-awesome";
+@import "font_overwrite";
+@import "font-awesome/scss/font-awesome";
 
 body {
   ul.nav.navbar-nav {

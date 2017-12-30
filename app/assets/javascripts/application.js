@@ -14,7 +14,7 @@
 //= require popper
 //= require bootstrap
 //= require jquery_ujs
-//= require turbolinks
 //= require run_prettify
+//= require turbolinks
 //= require trix
 //= require_tree .
