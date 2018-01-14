@@ -11,10 +11,12 @@ class MessagesController < ApplicationController
   end
 
   def create
-    receive_user = User.find_by(name: (params[:message].fetch(:receive_name, false)))
+    receive_user = User.find((params[:message].fetch(:receive_name, false)))
     tmp = message_parameter
     if current_user.messages.create(body: tmp.fetch(:body), user_id: current_user.id, receive_name: tmp.fetch(:receive_name), message_state_id: 2)
-      redirect_to user_messages_path
+      ActionCable.server.broadcast 'messages',
+        user_id: receive_user.id
+      head :ok
     else
       render "new"
     end
