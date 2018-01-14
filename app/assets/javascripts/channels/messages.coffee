@@ -6,6 +6,4 @@ App.messages = App.cable.subscriptions.create "MessagesChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    if Number.parseInt(location.href.split('/')[4]) == data.user_id
-        $(document.body).append("<h1>hello</h1>")
     console.log data

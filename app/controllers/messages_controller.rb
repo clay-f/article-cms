@@ -15,7 +15,8 @@ class MessagesController < ApplicationController
     tmp = message_parameter
     if current_user.messages.create(body: tmp.fetch(:body), user_id: current_user.id, receive_name: tmp.fetch(:receive_name), message_state_id: 2)
       ActionCable.server.broadcast 'messages',
-        user_id: receive_user.id
+        username: receive_user.name,
+        message: params[:message].fetch(:body)
       head :ok
     else
       render "new"

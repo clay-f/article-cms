@@ -15,6 +15,5 @@
             <%= f.hidden_field :receive_name, value: @message.user.id %>
             <%= f.submit :'发送'%>
         <% end %>
-        <%= link_to "delete", user_message_path([@message, current_user]), method: :delete %>
     </div>
 </section>
