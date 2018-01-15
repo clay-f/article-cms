@@ -1,8 +1,8 @@
 class MessagesController < ApplicationController
+  rescue_from NoMethodError, with: :handle_no_method_error
   def index
-    @messages = Message.where(receive_name: current_user.id.to_s)
-    puts "use messages size: #{@messages.size}"
-    render "index"
+    @messages = Message.where(receive_name: current_user.id).select("distinct on (user_id) *")
+    uniq_val = @messages.map { |i| i.receive_name }.uniq
   end
 
   def new
@@ -42,5 +42,11 @@ class MessagesController < ApplicationController
 
   def message_parameter
     params.require(:message).permit(:receive_name, :body)
+  end
+
+  def handle_no_method_error
+    if current_user.nil?
+      redirect_to new_user_session_path
+    end
   end
 end

@@ -26,6 +26,7 @@
               <div class="dropdown-menu" aria-labelledby="message-dropdown">
                 <a href="/user/<%= current_user.id %>/messages" class="dropdown-item">
                   Message list<span class="badge badge-light"><%= Message.where(receive_name: current_user.id.to_s).select { |i| i.message_state_id == 2 }.size %></span></a>
+                  <%= link_to 'New message', new_user_message_path(current_user), class: "dropdown-item" %>
               </div>
             </li>
             <li class="nav-item dropdown">
