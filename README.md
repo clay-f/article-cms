@@ -1,5 +1,4 @@
-### Test blog
-> this is test blog
+### CMS
 
 #### Install
 ##### require
@@ -21,3 +20,8 @@
 * Message
 * MessageState
 
+### todo
+* try add send message between users
+* update index page
+* add suggest post on show page
+* add ajax
