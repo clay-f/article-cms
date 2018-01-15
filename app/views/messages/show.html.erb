@@ -1,19 +1,17 @@
 <section>
-    <div class="card">
-        <div class="card-body">
-            <p>发送方: <%= @message.user.name %></p>
-            <p class="card-subtitle text-muted">时间: <%= @message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-            <p> <%= @message.body %> </p>
-        </div>
-    </div>
+  <ul>
+    <% @messages_list.each do |message| %>
+      <li><%= message.body %></li>
+    <% end %>
+  </ul>
 </section>
 <br>
 <section class="card">
-    <div class="card-body">
-        <%= form_for([current_user, Message.new]) do |f| %>
-            <%= f.text_field :body, placeholder: "快速回复: "%>
-            <%= f.hidden_field :receive_name, value: @message.user.id %>
-            <%= f.submit :'发送'%>
-        <% end %>
-    </div>
+  <div class="card-body">
+    <%= form_for([current_user, Message.new]) do |f| %>
+      <%= f.text_field :body, placeholder: "快速回复: "%>
+      <%= f.hidden_field :receive_name, value: @message.user.id %>
+      <%= f.submit :'发送'%>
+    <% end %>
+  </div>
 </section>

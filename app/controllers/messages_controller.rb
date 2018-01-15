@@ -25,6 +25,8 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find(params[:id])
+    @messages_list = Message.where("receive_name = #{current_user.id}").order(:created_at)
+
     if @message.message_state_id == 2
       @message.message_state_id = 1 
       @message.save
