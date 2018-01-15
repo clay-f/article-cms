@@ -1,75 +1,73 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Blog</title>
-  <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= favicon_link_tag 'blog-ico.ico' %>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<body>
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <%= link_to 'Navbar', root_path, class: "navbar-brand" %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <%= link_to url: articles_path, class: "nav-link" do %> <span class="sr-only"></span> <% end %> 
-        </li>
-        <% if user_signed_in? %>
-         <li class="nav-item"> <%= link_to 'New article', new_article_path, class: "nav-link" %> </li>
-         <li class="nav-item dropdown">
-           <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">
-            <%= image_tag current_user.avatar.url(:thumb), size: '23x23' %> <%= current_user.name %>
-           </a>
-           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to 'Profile', edit_user_registration_path, class: "dropdown-item" %>
-            <a href="/user/<%= current_user.id %>/messages" class="dropdown-item">
-              Message list<span class="badge badge-light"><%= image_tag 'bell.png', size: '20x20' %> <%= Message.where(receive_name: current_user.id.to_s).select { |i| i.message_state_id == 2 }.size %></span>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'blog-ico.ico' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= link_to 'Navbar', root_path, class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%= link_to url: articles_path, class: "nav-link" do %> <span class="sr-only"></span> <% end %>
+          </li>
+          <% if user_signed_in? %>
+            <li class="nav-item"> <%= link_to 'New article', new_article_path, class: "nav-link" %> </li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" id="message-dropdown" data-toggle="dropdown">Messages<%= image_tag 'bell.png', size: '15x15' %> </a>
+              <div class="dropdown-menu" aria-labelledby="message-dropdown">
+                <a href="/user/<%= current_user.id %>/messages" class="dropdown-item">
+                  Message list<span class="badge badge-light"><%= Message.where(receive_name: current_user.id.to_s).select { |i| i.message_state_id == 2 }.size %></span></a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">
+                <%= image_tag current_user.avatar.url(:thumb), size: '23x23' %> <%= current_user.name %>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to 'Profile', edit_user_registration_path, class: "dropdown-item" %>
+                <%= link_to 'New message', new_user_message_path(current_user), class: "dropdown-item" %>
+                <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item"> <%= link_to 'Sign in', new_user_session_path, class: "nav-link" %> </li>
+            <li class="nav-item"> <%= link_to 'Sign up', new_user_registration_path, class: "nav-link" %> </li>
+          <% end %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Catalog
             </a>
-            <%= link_to 'New message', new_user_message_path(current_user), class: "dropdown-item" %>
-            <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-           </div>
-         </li>
-
-        <% else %>
-         <li class="nav-item"> <%= link_to 'Sign in', new_user_session_path, class: "nav-link" %> </li>
-         <li class="nav-item"> <%= link_to 'Sign up', new_user_registration_path, class: "nav-link" %> </li>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <% Catalog.all.each do |t| %>
+                <%= link_to t.name, articles_path(catalog: t.name), class: "dropdown-item" %>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+        <%= form_tag search_articles_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
+          <%= text_field_tag :search, params[:search], placeholder: "search", class: "form-control mr-sm-2" %>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         <% end %>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Catalog
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <% Catalog.all.each do |t| %>
-            <%= link_to t.name, articles_path(catalog: t.name), class: "dropdown-item" %>
-            <% end %>
-          </div>
-        </li>
-      </ul>
-      <%= form_tag search_articles_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
-      <%= text_field_tag :search, params[:search], placeholder: "search", class: "form-control mr-sm-2" %>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>        
-      <% end %>
-    </div>
-  </nav>
-
-  <div class="container-fluid">
-    <div class="row">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, class: "alert alert-info" %>
-      <% end %>
-      <div class="col-md-12 col-sm-12">
-        <%= yield %>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, class: "alert alert-info" %>
+        <% end %>
+        <div class="col-md-12 col-sm-12">
+          <%= yield %>
+        </div>
       </div>
     </div>
-  </div>
   </body>
 </html>
