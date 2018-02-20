@@ -20,7 +20,7 @@ gem 'bundler', '~> 1.16'
 gem 'jbuilder', '~> 2.7'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
-gem 'paperclip', '~> 5.1'
+gem 'paperclip', '~> 5.2', '>= 5.2.1'
 gem 'simple_form'
 gem 'searchkick', '~> 2.4'
 gem 'will_paginate'
