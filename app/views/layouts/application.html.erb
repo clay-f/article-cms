@@ -60,10 +60,6 @@
         <% end %>
       </div>
     </nav>
-    <section>
-      <%= link_to :logout, destroy_user_session_path, method: :delete %>
-    </section>
-
     <div class="container-fluid">
       <div class="row">
         <% flash.each do |name, msg| %>

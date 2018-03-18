@@ -1,62 +1,16 @@
-// Place all the styles related to the Articles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-.search_list, .article-list {
-    text-align: center;
-}
-
-#editor {
-    position: absolute;
-    width: 500px;
-    height: 400px;
-}
-label.error {
-  color: #A94442;
-}
-
-div.article-content {
-
-  div.article-img {
-      overflow: hidden;
-      text-align: center;
-  }
-  div.article-list {
-    ul li {
-      text-align: center;
+div.article-list {
+    div.wrap-content {
+        a {
+            color: black;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
     }
-    ul li a.article_title {
-      text-decoration: none;
+}
+
+main {
+    article {
+        text-align: center;
     }
-  }
-}
-
-div.article-title {
-  h1 {
-    text-align: center;
-  }
-}
-
-div.entry-content {
-
-  margin: 20px;
-}
-
-div.entry-footer {
-
-  ul.comments-list {
-    li {
-      list-style: none;
-      border-bottom: 1px dotted #DDD;
-    }
-  }
-  div.well {
-    p {
-      text-align: center;
-    }
-  }
-}
-
-#article_body {
-  height: 300px;
 }

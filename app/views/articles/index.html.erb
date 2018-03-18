@@ -1,20 +1,41 @@
 <article>
   <div class="article-list">
     <% if !@articles.blank? %>
-        <div class="list-group">
-          <% @articles.each do |article| %>
-                <%= link_to truncate(article.title, length: 30), article, class: "list-group-item list-group-item-action article_title text-center", target: :_self %>
-          <% end %>
-        </div>
+      <div class="list-group list-group-flush">
+        <% @articles.each do |article| %>
+          <li class="list-group-item">
+            <div class="article text-left">
+              <div class="author">
+                <%= image_tag(article.user.avatar.url(:thumb), size: '25x25') %>
+                <%= article.user.name %>
+                <%= article.created_at.strftime("%Y-%m-%d %H:%M") %>
+              </div>
+              <div class="content">
+                <div class="row">
+                  <div class="wrap-content col">
+                    <%= link_to truncate(article.title, length: 30), article, target: :_self, class: "text-left" %>
+                    <p><%= strip_tags(article.body[0..150]).html_safe %></p>
+                  </div>
+                  <div class="wrap-img col-3">
+                    <% if article.avatar.file? %>
+                      <%= image_tag(article.avatar, size: '150x150', class: "rounded d-block") %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </div>
     <% else %>
       <div class="well">
         <p>what? :) </p>
-       </div>
+      </div>
     <% end %>
   </div>
 </article>
 <div class="article-footer">
   <br>
   <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %>
-  </div>
+</div>
 </div>

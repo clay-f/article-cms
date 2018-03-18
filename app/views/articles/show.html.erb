@@ -1,51 +1,59 @@
 <main>
-    <section>
-      <h1 class="text-center"><%= @article.title %></h1>
-      <% if @article.catalog.present? %>
-          <div class="article-catalog-type">
-             <p class="help-block">
-                <span> posted on <%= @article.created_at.strftime("%Y-%m-%d") %> </span>
-                <br>
-                <span> Type: <%= @article.catalog.name %> </span>
-              </p>
-          </div>
-      <% end %>
-    </section>
-    
-    <article>
-      <% if @article.avatar.present? %>
-        <figure>
-            <%= image_tag @article.avatar, style: "height:350px;width:auto;", class: "img-fluid img-thumbnail rounded mx-auto d-block" %>
-        </figure>
-      <% end %>
-      
-      <p class="text-justify"> <%= @article.body.html_safe %> </p>
-      <div class="text-center">
-         <% if !current_user.blank? %>
-            <% if @article.user_id == current_user.id %>
-              <%= link_to 'back', new_article_path, class: "btn btn-primary" %>
-              <%= link_to 'edit', edit_article_path(@article), class: "btn btn-primary", target: :_self %>
-              <%= link_to 'delete', article_path(@article), method: :delete, class: "btn btn-danger" %> 
-            <% end %>
-        <% end %>
+  <section>
+    <h1 class="text-center"><%= @article.title %></h1>
+    <% if @article.catalog.present? %>
+      <div class="article-catalog-type">
+        <p class="help-block">
+          <span> posted on <%= @article.created_at.strftime("%Y-%m-%d") %> </span>
+          <br>
+          <span> Type: <%= @article.catalog.name %> </span>
+        </p>
       </div>
-    </article>
-    <br>
-    <br>
-
-    <% if @comments.size > 0 %>
-      <section>
-        <div class="card text-center">
-         <div class="card-body text-left"> <%= render @comments %> </div>
-       </div>
-        <br>
-      </section>
     <% end %>
-  
-    <section>
-        <div class="card"> <div class="card-header"> 发表评论 </div>
-          <div class="card-body"> <%= render "comments/form" %> </div>
-        </div>
-    </section>
-    <p> <%= will_paginate(@comments, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %> </p>
+  </section>
+  <article>
+    <% if @article.avatar.present? %>
+      <figure>
+        <%= image_tag @article.avatar, style: "height:350px;width:auto;", class: "img-fluid img-thumbnail rounded mx-auto d-block" %>
+      </figure>
+    <% end %>
+    <p class="text-justify">
+      <%= @article.body.html_safe %>
+    </p>
+    <br>
+    <div class="text-center">
+      <% if !current_user.blank? %>
+        <% if @article.user_id == current_user.id %>
+          <%= link_to 'back', new_article_path, class: "btn btn-primary" %>
+          <%= link_to 'edit', edit_article_path(@article), class: "btn btn-primary", target: :_self %>
+          <%= link_to 'delete', article_path(@article), method: :delete, class: "btn btn-danger" %>
+        <% end %>
+      <% end %>
+    </div>
+  </article>
+  <br>
+  <br>
 </main>
+<section>
+  <div class="card">
+    <div class="card-header"> 发表评论 </div>
+    <div class="card-body">
+      <%= render "comments/form" %>
+    </div>
+  </div>
+</section>
+<section class="comments">
+  <% if @comments.size > 0 %>
+    <section>
+      <div class="card text-center">
+        <div class="card-body text-left">
+          <%= render @comments %>
+        </div>
+      </div>
+      <br>
+      <p>
+        <%= will_paginate(@comments, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %>
+      </p>
+    </section>
+  <% end %>
+</section>
