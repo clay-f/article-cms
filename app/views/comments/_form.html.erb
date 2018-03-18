@@ -1,5 +1,15 @@
-<%= simple_form_for [@article, @article.comments.build] do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.submit :submit, class: "btn btn-primary" %>
+<%= form_for [@article, @article.comments.build] do |f| %>
+  <div>
+    <%= image_tag(@article.user.avatar(:thumb), size: '30x30') %>
+    <%= f.text_area :description, cols: 50, placeholder: "写下你的评论..."  %>
+  </div>
+  <div class="clearfix">
+    <div class="left-comment">
+      <p class="text-muted">⌘+return 发表</p>
+    </div>
+    <div class="right-comment">
+      <%= f.submit "发送", class: "btn btn-primary" %>
+      <%= button_tag "取消", type: :reset, class: "btn btn-light" %>
+    </div>
+  </div>
 <% end %>

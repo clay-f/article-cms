@@ -14,3 +14,28 @@ main {
         text-align: center;
     }
 }
+
+section.new-comment {
+    margin: 0 auto;
+
+    form {
+        textarea {
+            border: 1px solid #dcdcdc;
+            border-radius: 4px;
+            background-color: hsla(0, 0%, 71%, 0.1);
+        }
+
+        div.left-comment {
+            display: inline;
+            p {
+                display: inline;
+            }
+            padding-right: 70px;
+        }
+
+        div.right-comment {
+            display: inline;
+            padding-left: 80px;
+        }
+    }
+}

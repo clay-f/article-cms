@@ -34,13 +34,8 @@
   <br>
   <br>
 </main>
-<section>
-  <div class="card">
-    <div class="card-header"> 发表评论 </div>
-    <div class="card-body">
-      <%= render "comments/form" %>
-    </div>
-  </div>
+<section class="new-comment text-center">
+  <%= render "comments/form" %>
 </section>
 <section class="comments">
   <% if @comments.size > 0 %>
