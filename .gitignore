@@ -111,3 +111,4 @@ bower.json
 .byebug_history
 .rbenv-vars
 yarn-error.log
+article*

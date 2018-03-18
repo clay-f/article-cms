@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root 'articles#index'
-  mount ActionCable.server => '/cable'
 
   devise_for :users
 

@@ -62,7 +62,6 @@ GEM
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
     climate_control (0.2.0)
-    cliver (0.3.2)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -99,7 +98,7 @@ GEM
     faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.23)
-    friendly_id (5.1.0)
+    friendly_id (5.2.3)
       activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -136,17 +135,13 @@ GEM
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
-    paperclip (5.3.0)
+    paperclip (6.0.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
     pg (0.21.0)
-    poltergeist (1.17.0)
-      capybara (~> 2.1)
-      cliver (~> 0.3.1)
-      websocket-driver (>= 0.2.0)
     popper_js (1.12.9)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -202,9 +197,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    searchkick (2.5.0)
-      activemodel (>= 4.1)
-      elasticsearch (>= 1)
+    searchkick (3.0.1)
+      activemodel (>= 4.2)
+      elasticsearch (>= 5)
       hashie
     simple_form (3.5.1)
       actionpack (> 4, < 5.2)
@@ -234,7 +229,7 @@ GEM
     turbolinks-source (5.1.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (3.2.0)
+    uglifier (4.1.8)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
@@ -255,40 +250,39 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
-  bootstrap (~> 4.0.0.beta2.1)
+  bootstrap
   bootstrap-will_paginate
-  bundler (~> 1.16)
+  bundler
   byebug
   capybara (~> 2.16, >= 2.16.1)
-  coffee-rails (~> 4.2, >= 4.2.2)
+  coffee-rails
   devise
   factory_bot_rails (~> 4.0)
   faker (~> 1.8, >= 1.8.4)
   faraday (~> 0.13.1)
-  friendly_id (~> 5.1.0)
-  jbuilder (~> 2.7)
-  jquery-rails
+  friendly_id
+  jbuilder
+  jquery-rails (~> 4.3, >= 4.3.1)
   listen (~> 3.1, >= 3.1.5)
   minitest (~> 5.10, >= 5.10.3)
-  paperclip (~> 5.2, >= 5.2.1)
+  paperclip
   pg (~> 0.21.0)
-  poltergeist
   pry (~> 0.11.3)
   pry-byebug
   puma (~> 3.11)
   rails (~> 5.1, >= 5.1.4)
-  redis (~> 4.0, >= 4.0.1)
-  sass-rails (~> 5.0, >= 5.0.7)
-  searchkick (~> 2.4)
+  redis
+  sass-rails
+  searchkick
   simple_form
   spring
   spring-watcher-listen (~> 2.0, >= 2.0.1)
-  sprockets-rails (~> 3.2, >= 3.2.1)
+  sprockets-rails
   sqlite3
-  trix (~> 0.11)
-  turbolinks (~> 5.0, >= 5.0.1)
+  trix
+  turbolinks
   tzinfo-data
-  uglifier (~> 3.2)
+  uglifier
   web-console (~> 3.5, >= 3.5.1)
   will_paginate
 

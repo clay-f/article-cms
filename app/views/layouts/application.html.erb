@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog</title>
+    <title>simple articles</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -60,6 +60,10 @@
         <% end %>
       </div>
     </nav>
+    <section>
+      <%= link_to :logout, destroy_user_session_path, method: :delete %>
+    </section>
+
     <div class="container-fluid">
       <div class="row">
         <% flash.each do |name, msg| %>
