@@ -7,7 +7,6 @@ document.addEventListener("turbolinks:load", function() {
                     url: "/articles/" + $("#article_id").val() + "/comments",
                     data: $("form#new_comment").serialize(),
                     success: function(data) {
-                        alert(data);
                         $("form#new_comment")[0].reset();
                     }
                 });

@@ -36,16 +36,14 @@
 </main>
 <section class="new-comment text-center">
   <%= render "comments/form" %>
+  <br>
 </section>
 <section class="comments">
   <% if @comments.size > 0 %>
-    <section>
-      <div class="card text-center">
-        <div class="card-body text-left">
-          <%= render @comments %>
-        </div>
-      </div>
-      <br>
+    <ul class="list-group list-group-flush">
+        <%= render @comments %>
+    </ul>
+    <br>
       <p>
         <%= will_paginate(@comments, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %>
       </p>
