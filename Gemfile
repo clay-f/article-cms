@@ -14,7 +14,6 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0', '>= 5.0.7'
 gem 'uglifier', '~> 3.2'
 gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
-gem 'jquery-rails'
 gem 'turbolinks', '~> 5.0', '>= 5.0.1'
 gem 'bundler', '~> 1.16'
 gem 'jbuilder', '~> 2.7'
@@ -42,7 +41,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'poltergeist'
   gem 'faraday', '~> 0.13.1'
   gem 'byebug', platform: :mri
   gem 'capybara', '~> 2.16', '>= 2.16.1'

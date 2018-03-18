@@ -11,17 +11,3 @@
 * `rake db:seed`
 * `rails s`
 * Open browser go to `http://localhost:3000`
-
-#### Data model
-* Uesr
-* Catalog
-* Article
-* Comment
-* Message
-* MessageState
-
-### todo
-* try add send message between users
-* update index page
-* add suggest post on show page
-* add ajax
