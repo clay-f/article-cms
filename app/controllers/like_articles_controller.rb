@@ -1,0 +1,2 @@
+class LikeArticlesController < ApplicationController
+end

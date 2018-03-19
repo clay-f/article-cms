@@ -4,6 +4,7 @@ class Article < ApplicationRecord
   searchkick
   
   has_many :comments, dependent: :destroy
+  has_many :like_articles, dependent: :destroy
   belongs_to :catalog
   belongs_to :user
   has_attached_file :avatar
