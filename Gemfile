@@ -9,7 +9,7 @@ group :production, :staging do
   gem 'pg', '~> 0.21.0'
 end
 
-gem 'rails', '~> 5.1', '>= 5.1.4'
+gem 'rails'
 gem 'puma', '~> 3.11'
 gem 'sass-rails'
 gem 'uglifier'

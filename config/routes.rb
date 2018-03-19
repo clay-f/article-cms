@@ -13,4 +13,6 @@ Rails.application.routes.draw do
     end
     resources :comments, except: [:index, :new]
   end
+
+  resources :like_articles, only: [:create, :destroy, :index]
 end
