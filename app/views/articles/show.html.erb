@@ -17,11 +17,9 @@
         <%= image_tag @article.avatar, style: "height:350px;width:auto;", class: "img-fluid img-thumbnail rounded mx-auto d-block" %>
       </figure>
     <% end %>
-    <p class="text-justify">
-      <%= @article.body.html_safe %>
-    </p>
     <br>
     <div class="text-center">
+      <p> <%= @article.body.html_safe %> </p>
       <% if !current_user.blank? %>
         <% if @article.user_id == current_user.id %>
           <%= link_to '编辑文章', edit_article_path(@article), class: "btn", target: :_self %>
@@ -39,12 +37,12 @@
 <section class="comments">
   <% if @comments.size > 0 %>
     <ul class="list-group list-group-flush">
-        <%= render @comments %>
+      <%= render @comments %>
     </ul>
     <br>
-      <p>
-        <%= will_paginate(@comments, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %>
-      </p>
-    </section>
-  <% end %>
+    <p>
+      <%= will_paginate(@comments, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %>
+    </p>
+  </section>
+<% end %>
 </section>
