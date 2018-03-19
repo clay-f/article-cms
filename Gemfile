@@ -42,12 +42,11 @@ group :development do
 end
 
 group :development, :test do
-  gem 'faraday', '~> 0.13.1'
+  gem 'faraday'
   gem 'byebug', platform: :mri
-  gem 'capybara', '~> 2.16', '>= 2.16.1'
+  gem 'capybara'
   gem 'pry-byebug'
-  gem 'sqlite3'
-  gem "factory_bot_rails", "~> 4.0"
-  gem 'minitest', '~> 5.10', '>= 5.10.3'
-  gem 'faker', '~> 1.8', '>= 1.8.4'
+  gem "factory_bot_rails"
+  gem 'minitest'
+  gem 'faker'
 end

@@ -12,6 +12,13 @@ div.article-list {
 main {
     article {
         text-align: center;
+        div.text-center {
+            a {
+                border: 1px solid #dcdcdc;
+                color: #9b9b9b;
+                border-radius: 50px;
+            }
+        }
     }
 }
 
