@@ -22,7 +22,7 @@
       <p> <%= @article.body.html_safe %> </p>
       <% if !current_user.blank? %>
         <% if @article.user_id == current_user.id %>
-          <%= link_to '编辑文章', edit_article_path(@article), class: "btn", target: :_self %>
+          <%= link_to 'Edit article', edit_article_path(@article), class: "btn", target: :_self %>
         <% end %>
       <% end %>
     </div>
@@ -33,9 +33,11 @@
 <section class="new-comment text-center">
   <%= render "comments/form" %>
   <br>
+  <br>
 </section>
-<section class="comments">
+<section class="comments text-center">
   <% if @comments.size > 0 %>
+    <p><%= @comments.size %> comments</p>
     <ul class="list-group list-group-flush">
       <%= render @comments %>
     </ul>
