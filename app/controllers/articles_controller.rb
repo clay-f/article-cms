@@ -11,6 +11,14 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def profile
+    if user_signed_in?
+      @articles = current_user.articles
+    else
+      redirect_to root_url
+    end
+  end
+
   def index
     @articles =
     if params[:catalog].blank?

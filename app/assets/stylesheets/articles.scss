@@ -5,6 +5,7 @@ div.article-list {
             font-size: 18px;
             font-weight: 700;
             line-height: 1.5;
+            text-decoration: none;
         }
     }
 }
@@ -16,7 +17,7 @@ main {
             a {
                 border: 1px solid #dcdcdc;
                 color: #9b9b9b;
-                border-radius: 50px;
+                border-radius: 50px;                
             }
         }
 
@@ -43,6 +44,17 @@ section.new-comment {
                 display: inline;
             }
             padding-right: 90px;
+        }
+    }
+}
+
+section.profile-article-list {
+    ul li {
+        div.wrap-article {
+            h6 a {
+                color: black;
+                text-decoration: none;
+            }
         }
     }
 }
