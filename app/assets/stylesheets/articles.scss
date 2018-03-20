@@ -43,7 +43,11 @@ section.new-comment {
             p {
                 display: inline;
             }
-            padding-right: 90px;
+            padding-right: 100px;
+        }
+
+        input[type="submit"] {
+            border-radius: 20px;
         }
     }
 }

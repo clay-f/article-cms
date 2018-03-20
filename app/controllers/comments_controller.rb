@@ -32,6 +32,6 @@ class CommentsController < ApplicationController
   end
 
   def get_article
-    @article = Article.find(params[:article_id])
+    @article = Article.friendly.find(params[:article_id])
   end
 end
