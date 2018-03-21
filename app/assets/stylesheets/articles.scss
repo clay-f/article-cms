@@ -13,11 +13,20 @@ div.article-list {
 main {
     article {
         text-align: center;
+
         div.text-center {
             a {
                 border: 1px solid #dcdcdc;
                 color: #9b9b9b;
-                border-radius: 50px;                
+                border-radius: 50px;
+            }
+        }
+
+        div.like-article {
+            display: inline-block;
+            h4 {
+                border: 1px solid #EA6F5A;
+                border-radius: 40px;
             }
         }
 
@@ -40,9 +49,11 @@ section.new-comment {
 
         div.left-comment {
             display: inline;
+
             p {
                 display: inline;
             }
+
             padding-right: 100px;
         }
 

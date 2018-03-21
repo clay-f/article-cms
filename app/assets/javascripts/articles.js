@@ -12,5 +12,22 @@ document.addEventListener("turbolinks:load", function() {
                 });
             }
         });
+
+        $("div.like-article").on("click", () => {
+            var article_id = window.location.href.split('/')[4];
+            $.ajax({
+                method: "post",
+                url: "/like_articles",
+                dataType: "json",
+                data: {like_article: {article_id: article_id}},
+                success: (data) => {
+                    if (data.state == 0) {
+                        window.location.replace("http://localhost:3000/users/sign_in");
+                    } else {
+
+                    }
+                }
+            });
+        });
     }
 })
