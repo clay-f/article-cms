@@ -17,3 +17,4 @@
 //= require turbolinks
 //= require trix
 //= require_tree .
+//= require fontawesome/svg-with-js/js/fontawesome-all.min.js
