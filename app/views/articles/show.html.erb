@@ -33,7 +33,7 @@
         <% else %>
           <i class="far fa-heart" id="like_article_state"></i>
         <% end %>
-        喜欢 <%= @article.like_articles.where(state: 1).size %>
+        <%= @article.like_articles.where(state: 1).size %>
       </h5>
     </div>
   </article>
