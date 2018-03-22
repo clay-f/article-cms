@@ -21,13 +21,24 @@ document.addEventListener("turbolinks:load", function() {
                 dataType: "json",
                 data: {like_article: {article_id: article_id}},
                 success: (data) => {
-                    if (data.state == 0) {
+                    if (data.operate_state == 0) {
                         window.location.replace("http://localhost:3000/users/sign_in");
                     } else {
-
+                        changeLikeArticleState(data.article_state);
                     }
                 }
             });
         });
     }
 })
+
+function changeLikeArticleState(state) {
+    switch(state) {
+        case 0:
+            $("#like_article_state").children().replaceWith("<i class='far fa-heart' id='like_article_state'></i>");
+            break;
+        case 1:
+            $("#like_article_state").children().replaceWith("<i class='fas fa-heart' id='like_article_state'></i>");
+            break;
+    }
+}

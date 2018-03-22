@@ -48,7 +48,13 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.friendly.find(params[:id])
     @comments = @article.comments.order("created_at desc").paginate(:page => params[:page], per_page: 4)
-
+    @like_article_state = 
+      if user_signed_in? &&
+         (current_user.like_articles.size > 0 && current_user.like_articles.where(article_id: @article.id).first.state == 1)
+        1
+      else
+        0
+      end
     respond_to do |format|
       format.html
       format.json { render json: [@article, @comments], except: [:created_at, :updated_at] }
