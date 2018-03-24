@@ -41,9 +41,15 @@
   <br>
 </main>
 <section class="new-comment text-center">
-  <%= render "comments/form" %>
-  <br>
-  <br>
+  <% if user_signed_in? %>
+    <%= render "comments/form" %>
+  <% else %>
+    <div class="prompt-login-message" role="alert">
+      <%= link_to 'Login', new_user_session_path, class: 'btn btn-info' %>
+      login create comment
+    </div>
+  <% end %>
+    <br>
 </section>
 <section class="comments text-center">
   <% if @comments.size > 0 %>
