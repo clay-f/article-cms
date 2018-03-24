@@ -72,6 +72,19 @@ section.comments {
         div.comment-list-item {
             border-bottom: 1px solid #f0f0f0;
             padding: 20px 0 30px;
+
+            div.user-info {
+                div.wrap-user-comment-img {
+                    display: inline;
+                }
+
+                div.wrap-user-comment-info {
+                    display: inline;
+                    a {
+                        text-decoration: none;
+                    }
+                }
+            }
         }
     }
 }

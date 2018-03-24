@@ -12,11 +12,7 @@ class ArticlesController < ApplicationController
   end
 
   def profile
-    if user_signed_in?
-      @articles = current_user.articles
-    else
-      redirect_to root_url
-    end
+    @articles = User.find(params[:id]).articles
   end
 
   def index
@@ -46,15 +42,15 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @like_article_state = 0
     @article = Article.friendly.find(params[:id])
     @comments = @article.comments.order("created_at desc").paginate(:page => params[:page], per_page: 4)
-    @like_article_state = 
-      if user_signed_in? &&
-         (current_user.like_articles.size > 0 && current_user.like_articles.where(article_id: @article.id).first.state == 1)
-        1
-      else
-        0
-      end
+    if user_signed_in?
+      tmp_articles = current_user.like_articles.where(article_id: @article.id)
+      @like_article_state = tmp_articles.first.state unless tmp_articles.empty?
+    else
+
+    end
     respond_to do |format|
       format.html
       format.json { render json: [@article, @comments], except: [:created_at, :updated_at] }
