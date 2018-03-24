@@ -33,7 +33,9 @@
         <% else %>
           <i class="far fa-heart" id="like_article_state"></i>
         <% end %>
-        <%= @article.like_articles.where(state: 1).size %>
+        <div id="like-article-size">
+          <%= @article.like_articles.where(state: 1).size %>
+        </div>
       </h5>
     </div>
   </article>
