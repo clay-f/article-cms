@@ -47,10 +47,10 @@
 </section>
 <section class="comments text-center">
   <% if @comments.size > 0 %>
-    <p><%= @comments.size %> comments</p>
-    <ul class="list-group list-group-flush">
+    <p id="comment-list-title"><%= @comments.size %> comments</p>
+    <div id="comment-list">
       <%= render @comments %>
-    </ul>
+    </div>
     <br>
     <p>
       <%= will_paginate(@comments, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %>

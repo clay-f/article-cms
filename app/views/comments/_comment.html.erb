@@ -1,8 +1,8 @@
-<li class="list-group-item">
+<div class="comment-list-item">
     <div class="user-info">
         <%= image_tag comment.user.avatar(:thumb), size: '30x30' %>
         <%= comment.user.name %>
         <%= time_ago_in_words comment.created_at.strftime("%Y-%m-%d %H:%M") %>
     </div>
     <p class="card-text"><%= comment.description %> </p>
-</li>
+</div>

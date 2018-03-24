@@ -63,6 +63,19 @@ section.new-comment {
     }
 }
 
+section.comments {
+    p#comment-list-title {
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    div#comment-list {
+        div.comment-list-item {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 20px 0 30px;
+        }
+    }
+}
+
 section.profile-article-list {
     ul li {
         div.wrap-article {
