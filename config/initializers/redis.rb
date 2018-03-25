@@ -1,0 +1,1 @@
+$redis = if Rails.env.production? ? Redis.new(ENV["REDIS_URL"]) : Redis.new("redis://localhost:6379")
