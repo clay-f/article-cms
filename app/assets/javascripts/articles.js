@@ -30,6 +30,20 @@ document.addEventListener("turbolinks:load", function() {
             });
         });
     }
+
+    {
+        $("div#comment-list div.comment-list-item a").on("click", (event) => {
+            var subCommentForm = $("div#subcomment-form");
+            with($(event.target).parent().parent()) {
+                var parentCommentId = (attr("class").split(' ')[1].split('-')[1]);
+                var parentInput = $("<input type='hidden' name='parent_id' value='" + parentCommentId + "'/>");
+                debugger
+                subCommentForm.children().append(parentInput);
+                append(subCommentForm.css("display", "block"));
+            }
+
+        });
+    }
 })
 
 function changeLikeArticleState(state) {
