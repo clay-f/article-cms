@@ -1,7 +1,7 @@
 <%= form_for [@article, @article.comments.new], remote: true do |f| %>
   <div>
     <%= image_tag(current_user.avatar(:thumb), size: '30x30') %>:
-    <%= f.text_area :description, cols: 50, placeholder: "写下你的评论..."  %>
+    <%= f.text_area :description, cols: 40, placeholder: "写下你的评论..."  %>
   </div>
   <input type="hidden" name="title_id" id="article_id" value="<%= @article.id %>">
   <div class="clearfix">

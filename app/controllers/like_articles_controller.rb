@@ -9,6 +9,7 @@ class LikeArticlesController < ApplicationController
     end
     respond_to do |format|
       format.json { render json: state }
+      format.html
     end
   end
 

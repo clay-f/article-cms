@@ -16,7 +16,7 @@
                     <%= link_to truncate(article.title, length: 30), article, target: :_self, class: "text-left" %>
                     <p><%= strip_tags(article.body[0..150]).html_safe %></p>
                   </div>
-                  <div class="wrap-img col-3">
+                  <div class="wrap-img col-5">
                     <% if article.avatar.file? %>
                       <%= image_tag(article.avatar, size: '160x100', class: "rounded d-block") %>
                     <% end %>
