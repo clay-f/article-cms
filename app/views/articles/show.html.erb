@@ -61,6 +61,12 @@
     <div id="comment-list">
       <%= render @comments %>
     </div>
+    <div id="subcomment-form">
+      <form style="display: none">
+        <textarea cols="50" placeholder="write your message...">
+        </textarea>
+      </form>
+    </div>
     <br>
     <p>
      <%= paginate @comments, outer_window: 3%>
