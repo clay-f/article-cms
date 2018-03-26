@@ -38,11 +38,14 @@ ActiveRecord::Schema.define(version: 20180324024719) do
 
   create_table "comments", force: :cascade do |t|
     t.text "description"
+    t.string "commentable_type"
+    t.bigint "commentable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "article_id"
     t.integer "parent_id", default: 0, null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -105,7 +108,7 @@ ActiveRecord::Schema.define(version: 20180324024719) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
-    t.string "description"
+    t.string "description", default: "0", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true

@@ -4,7 +4,7 @@ class User < ApplicationRecord
   attr_accessor :login
 
   has_many :articles, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :like_articles, dependent: :destroy
 
