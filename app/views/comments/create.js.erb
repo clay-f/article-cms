@@ -1,1 +1,2 @@
-$("ul.comments-list").append("<%= j render partial: 'comment', locals: { comment: @comment} %>");
+$("form#new_comment textarea").val("");
+$("div.comment-list-item:first").before("<%= j render partial: 'comment', locals: { comment: @comment} %>");
