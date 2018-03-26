@@ -14,7 +14,7 @@ document.addEventListener("turbolinks:load", function() {
         });
 
         $("div.like-article").on("click", () => {
-            var article_id = window.location.href.split('/')[4];
+            var article_id = window.location.href.split('/')[4].replace(/\?page=+\d/, "");
             $.ajax({
                 method: "post",
                 url: "/like_articles",

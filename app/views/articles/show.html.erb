@@ -23,6 +23,8 @@
       <% if !current_user.blank? %>
         <% if @article.user_id == current_user.id %>
           <%= link_to 'Edit article', edit_article_path(@article), class: "btn", target: :_self %>
+          <br>
+          <br>
         <% end %>
       <% end %>
     </div>
@@ -61,7 +63,7 @@
     </div>
     <br>
     <p>
-      <%= will_paginate(@comments, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %>
+     <%= paginate @comments, outer_window: 3%>
     </p>
   <% end %>
 </section>

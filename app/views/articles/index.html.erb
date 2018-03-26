@@ -33,9 +33,7 @@
       </div>
     <% end %>
   </div>
+  <footer>
+    <%= paginate @articles, outer_window: 3, outer_window: 3 %>
+  </footer>
 </article>
-<div class="article-footer">
-  <br>
-  <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center') %>
-</div>
-</div>

@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
     if params[:search].present?
       @articles = Article.search(params[:search])
     else
-      @articles = Article.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+      @articles = Article.all.order("created_at DESC").page(10)
     end
   end
 
@@ -17,12 +17,12 @@ class ArticlesController < ApplicationController
 
   def index
     @articles =
-    if params[:catalog].blank?
-      Article.friendly.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
-    else
-      catalog_id = Catalog.find_by(name: params[:catalog]).id
-      Article.friendly.where(catalog_id: catalog_id).paginate(page: params[:page], per_page: 10)
-    end
+      if params[:catalog].blank?
+        Article.friendly.order(:created_at).page(params[:page]).per(10)
+      else
+        catalog_id = Catalog.find_by(name: params[:catalog]).id
+        Article.friendly.where(catalog_id: catalog_id).page(params[:page]).per(10)
+      end
 
     respond_to do |format|
       format.html
@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
   def show
     @like_article_state = 0
     @article = Article.friendly.find(params[:id])
-    @comments = @article.comments.order("created_at desc").paginate(:page => params[:page], per_page: 4)
+    @comments = @article.comments.order(:created_at).page(params[:page]).per(5)
     if user_signed_in?
       tmp_articles = current_user.like_articles.where(article_id: @article.id)
       @like_article_state = tmp_articles.first.state unless tmp_articles.empty?
