@@ -1,4 +1,4 @@
-document.addEventListener("turbolinks:load", function() {
+document.addEventListener("turbolinks:load", () => {
     {
         $("form#new_comment").keydown((e) => {
             if ((e.keyCode == 10 || e.keyCode == 13) && e.ctrlKey) {
@@ -60,7 +60,7 @@ document.addEventListener("turbolinks:load", function() {
             event.preventDefault();
         });
     }
-})
+});
 
 function changeLikeArticleState(state) {
     var likeArticleSize = $("#like-article-size").text();
