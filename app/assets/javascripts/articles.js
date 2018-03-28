@@ -33,14 +33,17 @@ document.addEventListener("turbolinks:load", function() {
 
     {
         $("div#comment-list div.comment-list-item a").on("click", (event) => {
+            $("div#comment-list div.comment-list-item").find("form").find("input").remove();
             var subCommentForm = $("div#subcomment-form");
             with($(event.target).parent().parent()) {
                 var parentCommentId = (attr("class").split(' ')[1].split('-')[1]);
                 var parentInput = $("<input type='hidden' name='parent_id' value='" + parentCommentId + "'>");
                 subCommentForm.children().append(parentInput);
-                append(subCommentForm.css("display", "block"));
+                append(subCommentForm.css("display", "inline"));
             }
-
+            $.ajax({
+                
+            });
         });
     }
 })
