@@ -1,12 +1,17 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_article
+  before_action :comemntable_comment
 
   def create
     @comment = @article.comments.create(comment_params)
-    @comment.user_id = current_user.id
+    if @comment.class.name == "Comment"
+      @comment.parent_id = @article.id
+    else
+      @comment.user_id = current_user.id
+    end
     if @comment.save
       respond_to do |format|
+        format.json {render json: {state: 1}}
         format.html { redirect_to @article, notice: "created succeed"}
         format.js { }
       end
@@ -31,7 +36,12 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:description, :article_id, :user_id)
   end
 
-  def get_article
-    @article = Article.friendly.find(params[:article_id])
+  def comemntable_comment
+    @article = 
+      unless params[:comment_id].nil?
+        Comment.find(params[:comment_id])
+      else
+        Article.friendly.find(params[:article_id])
+      end
   end
 end

@@ -33,7 +33,7 @@ document.addEventListener("turbolinks:load", function() {
 
     {
         $("div#comment-list div.comment-list-item a").on("click", (event) => {
-            $("div#comment-list div.comment-list-item").find("form").find("input").remove();
+            $("div#comment-list div.comment-list-item").find("form").find("input[type=hidden]").remove();
             var subCommentForm = $("div#subcomment-form");
             with($(event.target).parent().parent()) {
                 var parentCommentId = (attr("class").split(' ')[1].split('-')[1]);
@@ -41,9 +41,23 @@ document.addEventListener("turbolinks:load", function() {
                 subCommentForm.children().append(parentInput);
                 append(subCommentForm.css("display", "inline"));
             }
+        });
+
+        $("div#subcomment-form").find("form").on("submit", (event) => {
             $.ajax({
-                
+                method: "post",
+                url: "/comments/" + $(event.target).find("input[type=hidden]").val() + "/comments",
+                dataType: "json",
+                data: {comment: {"description": "foo"}},
+                success: (data) => {
+                    console.log(data);
+                },
+                error: () => {
+                    console.log("false");
+                }
             });
+            $(event.target).find("textarea").val("");
+            event.preventDefault();
         });
     }
 })
