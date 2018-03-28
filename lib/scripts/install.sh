@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-### install blog app
+### install app
 
 declare -r SYSTEM_TYPE="$(uname -s)"
 declare -r APP_PATH=`dirname $(dirname $PWD)`
@@ -28,7 +28,8 @@ check_required_port() {
 if [[ "${SYSTEM_TYPE}" =~ "Darwin" ]]; then
     check_required_port "lsof -i TCP:postgresql" "lsof -i TCP:9200 -P" "lsof -i TCP:3000 -s TCP:LISTEN -P"
 else
-    check_required_port "netstat -tnulp" "netstat -tnulp" "netstat -tnulp"
+    for ((i=0; i<3; i++))
+	check_required_port "netstat -tnulp"
 fi
 
 cd "${APP_PATH}"

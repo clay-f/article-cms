@@ -36,8 +36,7 @@ document.addEventListener("turbolinks:load", function() {
             var subCommentForm = $("div#subcomment-form");
             with($(event.target).parent().parent()) {
                 var parentCommentId = (attr("class").split(' ')[1].split('-')[1]);
-                var parentInput = $("<input type='hidden' name='parent_id' value='" + parentCommentId + "'/>");
-                debugger
+                var parentInput = $("<input type='hidden' name='parent_id' value='" + parentCommentId + "'>");
                 subCommentForm.children().append(parentInput);
                 append(subCommentForm.css("display", "block"));
             }
