@@ -6,12 +6,10 @@ class CommentsController < ApplicationController
     @comment = @article.comments.create(comment_params)
     if @comment.class.name == "Comment"
       @comment.parent_id = @article.id
-    else
-      @comment.user_id = current_user.id
     end
+    @comment.user_id = current_user.id
     if @comment.save
       respond_to do |format|
-        format.json {render json: {state: 1}}
         format.html { redirect_to @article, notice: "created succeed"}
         format.js { }
       end

@@ -47,7 +47,7 @@ document.addEventListener("turbolinks:load", function() {
             $.ajax({
                 method: "post",
                 url: "/comments/" + $(event.target).find("input[type=hidden]").val() + "/comments",
-                dataType: "json",
+                dataType: "js",
                 data: {comment: {"description": "foo"}},
                 success: (data) => {
                     console.log(data);

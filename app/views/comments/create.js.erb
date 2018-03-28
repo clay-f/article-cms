@@ -3,6 +3,4 @@ if ($("div.comment-list-item:first").length > 0) {
     $("div.comment-list-item:first").before("<%= j render partial: 'comment', locals: { comment: @comment} %>");
 } else {
     $("section.comments").append("<div class='comment-list-item'><%= j render partial: 'comment', locals: { comment: @comment} %></div>");
-    debugger
-    
 }
