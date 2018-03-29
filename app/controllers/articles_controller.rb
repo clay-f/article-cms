@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @articles, only: [:id, :title, :body]}
+      format.json { render json: @articles, only: [:id, :title, :body] }
     end
   end
 

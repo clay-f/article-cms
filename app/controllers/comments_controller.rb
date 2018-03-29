@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       respond_to do |format|
-        format.html { redirect_to @article, notice: "created succeed"}
+        format.html { redirect_to @article, notice: "created succeed" }
         format.js { }
       end
     else
