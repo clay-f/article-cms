@@ -18,5 +18,3 @@ test:
 production:
   <<: *default
   database: blog_production
-  username: <%= ENV['BLOG_BLOG_PRODUCTION_USER_NAME'] %>
-  password: <%= ENV['BLOG_BLOG_PRODUCTION_PASSWD'] %>
