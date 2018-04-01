@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         format.html { redirect_to @article, notice: "created succeed" }
-        format.js { }
+        format.js
       end
     else
       redirect_to @article, notice: "characters is too short or name has been taken"

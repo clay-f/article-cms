@@ -47,10 +47,10 @@ document.addEventListener("turbolinks:load", () => {
             $.ajax({
                 method: "post",
                 url: "/comments/" + $(event.target).find("input[type=hidden]").val() + "/comments",
-                dataType: "js",
+                dataType: "script",
                 data: {comment: {"description": $(event.target).find("textarea").val()}},
                 success: (data) => {
-                    console.log(data);
+                    console.log("true");
                 },
                 error: () => {
                     console.log("false");
