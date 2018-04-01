@@ -48,7 +48,7 @@ document.addEventListener("turbolinks:load", () => {
                 method: "post",
                 url: "/comments/" + $(event.target).find("input[type=hidden]").val() + "/comments",
                 dataType: "js",
-                data: {comment: {"description": "foo"}},
+                data: {comment: {"description": $(event.target).find("textarea").val()}},
                 success: (data) => {
                     console.log(data);
                 },
