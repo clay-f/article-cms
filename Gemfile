@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 group :production, :staging do
-  gem 'pg', '~> 0.21.0'
+  gem 'pg'
 end
 
 gem 'rails'
@@ -15,7 +15,7 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'turbolinks'
-gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'jquery-rails'
 gem 'bundler'
 gem 'jbuilder'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
