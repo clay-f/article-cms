@@ -28,8 +28,9 @@ gem 'kaminari'
 gem 'bootstrap'
 gem 'sprockets-rails'
 gem 'friendly_id'
-gem 'redis'
 gem 'sidekiq'
+gem 'redis-rack-cache'
+gem 'redis-rails'
 
 group :development do
   gem 'web-console', '~> 3.5', '>= 3.5.1'
@@ -38,7 +39,7 @@ group :development do
   gem 'pry', '~> 0.11.3'
   gem 'awesome_print'
   gem 'spring-watcher-listen', '~> 2.0', '>= 2.0.1'
-  # gem 'rack-mini-profiler'
+  gem 'rack-mini-profiler'
 end
 
 group :development, :test do

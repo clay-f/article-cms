@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  include ArticlesHelper
   before_action :find_article, only: [:edit, :update, :destroy]
   before_action :find_catalog, only: [:edit, :create, :new, :update]
   before_action :authenticate_user!, except: [:index, :show, :search]
@@ -86,7 +87,7 @@ class ArticlesController < ApplicationController
   end
 
   def find_catalog
-    @catalog = Catalog.all.map {|t| [t.name, t.id]}
+    @catalog = fetch_categories
   end
 
 end

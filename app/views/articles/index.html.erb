@@ -1,3 +1,4 @@
+<% cache do %>
 <article>
   <div class="article-list">
     <% if !@articles.blank? %>
@@ -34,6 +35,8 @@
     <% end %>
   </div>
   <footer>
-    <%= paginate @articles, outer_window: 3, outer_window: 3 %>
+      <%= paginate @articles, outer_window: 3, outer_window: 3 %>
   </footer>
 </article>
+
+<% end %>

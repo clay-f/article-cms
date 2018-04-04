@@ -2,15 +2,11 @@
   <article>
     <header>
       <h1 class="text-center"><%= @article.title %></h1>
-      <% if @article.catalog.present? %>
-        <div class="article-catalog-type">
-          <p class="help-block">
-            <span> posted on <%= @article.created_at.strftime("%Y-%m-%d") %> </span>
-            <br>
-            <span> Type: <%= @article.catalog.name %> </span>
-          </p>
-        </div>
-      <% end %>
+      <p class="help-block">
+        <span> posted on <%= @article.created_at.strftime("%Y-%m-%d") %> </span>
+        <br>
+        <span> Type: <%= @article.catalog.name %> </span>
+      </p>
     </header>
     <% if @article.avatar.present? %>
       <figure>
@@ -53,13 +49,15 @@
       login create comment
     </div>
   <% end %>
-    <br>
+  <br>
 </section>
 <section class="comments text-center">
   <% if @comments.size > 0 %>
     <p id="comment-list-title"><%= @comments.size %> comments</p>
     <div id="comment-list">
-      <%= render @comments %>
+      <% cache do %>
+        <%= render @comments %>
+      <% end %>
     </div>
     <div id="subcomment-form" style="display: none">
       <form>
@@ -72,7 +70,9 @@
     </div>
     <br>
     <p>
-     <%= paginate @comments, outer_window: 3%>
+      <% cache do %>
+        <%= paginate @comments, outer_window: 3%>
+      <% end %>
     </p>
   <% end %>
 </section>
