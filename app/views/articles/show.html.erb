@@ -1,5 +1,4 @@
-<main>
-  <article>
+<main> <article>
     <header>
       <h1 class="text-center"><%= @article.title %></h1>
       <p class="help-block">
@@ -55,9 +54,7 @@
   <% if @comments.size > 0 %>
     <p id="comment-list-title"><%= @comments.size %> comments</p>
     <div id="comment-list">
-      <% cache do %>
-        <%= render @comments %>
-      <% end %>
+      <%= render @comments, cached: true %>
     </div>
     <div id="subcomment-form" style="display: none">
       <form>

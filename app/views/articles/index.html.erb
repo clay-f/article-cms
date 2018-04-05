@@ -1,31 +1,32 @@
-<% cache do %>
 <article>
   <div class="article-list">
     <% if !@articles.blank? %>
       <div class="list-group list-group-flush">
         <% @articles.each do |article| %>
-          <li class="list-group-item">
-            <div class="article text-left">
-              <div class="author">
-                <%= image_tag(article.user.avatar.url(:thumb), size: '25x25') %>
-                <%= article.user.name %>
-                <%= article.created_at.strftime("%Y-%m-%d %H:%M") %>
-              </div>
-              <div class="content">
-                <div class="row">
-                  <div class="wrap-content col">
-                    <%= link_to truncate(article.title, length: 30), article, target: :_self, class: "text-left" %>
-                    <p><%= strip_tags(article.body[0..150]).html_safe %></p>
-                  </div>
-                  <div class="wrap-img col-5">
-                    <% if article.avatar.file? %>
-                      <%= image_tag(article.avatar, size: '160x100', class: "rounded d-block") %>
-                    <% end %>
+          <% cache article do %>
+            <li class="list-group-item">
+              <div class="article text-left">
+                <div class="author">
+                  <%= image_tag(article.user.avatar.url(:thumb), size: '25x25') %>
+                  <%= article.user.name %>
+                  <%= article.created_at.strftime("%Y-%m-%d %H:%M") %>
+                </div>
+                <div class="content">
+                  <div class="row">
+                    <div class="wrap-content col">
+                      <%= link_to truncate(article.title, length: 30), article, target: :_self, class: "text-left" %>
+                      <p><%= strip_tags(article.body[0..150]).html_safe %></p>
+                    </div>
+                    <div class="wrap-img col-5">
+                      <% if article.avatar.file? %>
+                        <%= image_tag(article.avatar, size: '160x100', class: "rounded d-block") %>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </li>
+            </li>
+          <% end %>
         <% end %>
       </div>
     <% else %>
@@ -35,8 +36,6 @@
     <% end %>
   </div>
   <footer>
-      <%= paginate @articles, outer_window: 3, outer_window: 3 %>
+    <%= paginate @articles, outer_window: 3, outer_window: 3 %>
   </footer>
 </article>
-
-<% end %>
