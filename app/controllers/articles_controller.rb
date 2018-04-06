@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   include ArticlesHelper
   before_action :find_article, only: [:edit, :update, :destroy]
   before_action :find_categories, only: [:edit, :create, :new, :update]
-  before_action :authenticate_user!, except: [:index, :show, :search]
+  before_action :authenticate_user!, except: [:index, :show, :search, :profile]
 
   def search
     if params[:search].present?
