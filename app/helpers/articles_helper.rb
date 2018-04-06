@@ -13,4 +13,5 @@ module ArticlesHelper
 
   define_require_data_component("categories", Catalog.all.order(:created_at).to_json)
   define_require_data_component("article")
+  define_require_data_component("suggest_articles", Article.order("RANDOM()").limit(10).to_json)
 end
