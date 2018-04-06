@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   include ArticlesHelper
   before_action :find_article, only: [:edit, :update, :destroy]
-  before_action :find_catalog, only: [:edit, :create, :new, :update]
+  before_action :find_categories, only: [:edit, :create, :new, :update]
   before_action :authenticate_user!, except: [:index, :show, :search]
 
   def search
@@ -33,6 +33,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+
   end
 
   def create
@@ -86,8 +87,8 @@ class ArticlesController < ApplicationController
     @article = Article.friendly.find(params[:id])
   end
 
-  def find_catalog
-    @catalog = fetch_categories
+  def find_categories
+    @categories = fetch_categories
   end
 
 end

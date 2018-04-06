@@ -1,6 +1,6 @@
 <%= simple_form_for @article, html: { multipart: true } do |f| %>
     <%= f.input :title %>
-    Type: <%= f.select :catalog_id, @catalog %>
+    Type: <%= f.select :catalog_id, @categories.collect { |category| [category["name"], category["id"]] } %>
     <%=	f.input :avatar  %>
     <%= f.input :body, as: :trix_editor %>
     <%= f.button :submit, class: "btn btn-primary" %>

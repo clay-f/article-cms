@@ -17,7 +17,10 @@
       <p> <%= @article.body.html_safe %> </p>
       <% if !current_user.blank? %>
         <% if @article.user_id == current_user.id %>
-          <%= link_to 'Edit article', edit_article_path(@article), class: "btn", target: :_self %>
+          <br>
+          <br>
+          <%= link_to 'Edit', edit_article_path(@article), class: "btn", target: :_self %>
+          <%= link_to 'Delete', article_path(@article), method: :delete, class: "btn" %>
           <br>
           <br>
         <% end %>
