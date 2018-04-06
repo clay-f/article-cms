@@ -135,3 +135,14 @@ section.profile-article-list {
         }
     }
 }
+
+section#search_article_list {
+    div.article-item {
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        border-bottom: 1px solid #f0f0f0;
+        margin: 25px 0 30px;
+    }
+}

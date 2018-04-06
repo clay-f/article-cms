@@ -1,14 +1,22 @@
-<section>
+<section id="search_article_list">
   <div class="search_list">
       <% if !@articles.blank? %>
-          <ul class="list-group">
             <% @articles.each do |article| %>
-                 <%= link_to article.title, article, class: "list-group-item list-group-item-action" %>
+              <div class="article-item">
+                  <div class="wrap-user">
+                    <%= image_tag article.user.avatar(:thumb), size: '25x25' %>
+                    <%= link_to article.user.name, profile_article_path(article.user.id) %>
+                    <%= article.created_at.strftime("%Y-%m-%d") %>
+                  </div>
+                  <div class="wrap-article">
+                    <h5><%= link_to article.title, article_path(article) %></h5>
+                    <p><%= strip_tags(article.body[0..150]).html_safe %></p>
+                  </div>
+              </div>              
             <% end %>
-          </ul>
       <% else %>
-          <div class="jumbotron">
-            <h3 class="header">oh, bro, you late one step.</h3>
+          <div class="jumbotron text-center">
+            <h3 class="header">nothing :p</h3>
           </div>
       <% end %>
     </div>
