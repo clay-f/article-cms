@@ -63,6 +63,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article.update(article_params)
+    @article.body = params["body"]
     if @article.save
       redirect_to @article
     else

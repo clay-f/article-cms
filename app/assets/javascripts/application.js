@@ -15,6 +15,6 @@
 //= require popper
 //= require bootstrap
 //= require turbolinks
-//= require trix
+//= require trix/trix.js
 //= require_tree .
 //= require fontawesome/svg-with-js/js/fontawesome-all.min.js

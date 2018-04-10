@@ -1,7 +1,13 @@
 <%= form_for @article, html: { multipart: true } do |f| %>
-    <%= f.text_field :title %>
-    Type: <%= f.select :catalog_id, @categories.collect { |category| [category["name"], category["id"]] } %>
-    <%=	f.file_field :avatar  %>
-    <%= f.text_field :body, as: :trix_editor %>
+    <div class="form-group">
+        <%= f.text_field :title, autofocus: true, required: true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+        Type: <%= f.select :catalog_id, @categories.collect { |category| [category["name"], category["id"]] }, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+        <input id="x" value="<%= @article.body %>" type="hidden" name="body">
+        <trix-editor input="x"></trix-editor>
+    </div>
     <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>

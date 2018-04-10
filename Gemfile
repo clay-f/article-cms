@@ -23,7 +23,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'paperclip'
 gem 'searchkick'
-gem 'trix'
 gem 'kaminari'
 gem 'bootstrap'
 gem 'sprockets-rails'
