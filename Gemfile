@@ -10,8 +10,9 @@ group :production, :staging do
 end
 
 gem 'rails'
-gem 'puma', '~> 3.11'
+gem 'puma'
 gem 'sass-rails'
+gem 'bootsnap'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'turbolinks'
@@ -21,7 +22,6 @@ gem 'jbuilder'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'paperclip'
-gem 'simple_form'
 gem 'searchkick'
 gem 'trix'
 gem 'kaminari'

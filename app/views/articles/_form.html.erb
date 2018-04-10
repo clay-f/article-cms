@@ -1,7 +1,7 @@
-<%= simple_form_for @article, html: { multipart: true } do |f| %>
-    <%= f.input :title %>
+<%= form_for @article, html: { multipart: true } do |f| %>
+    <%= f.text_field :title %>
     Type: <%= f.select :catalog_id, @categories.collect { |category| [category["name"], category["id"]] } %>
-    <%=	f.input :avatar  %>
-    <%= f.input :body, as: :trix_editor %>
+    <%=	f.file_field :avatar  %>
+    <%= f.text_field :body, as: :trix_editor %>
     <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
