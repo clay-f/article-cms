@@ -1,1 +1,1 @@
-$redis = Redis.new
+$redis = Redis.new(url: "redis://redistogo:86c26f8600bc3951778cfff4a07a39cd@tarpon.redistogo.com:10543/0")

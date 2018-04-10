@@ -14,6 +14,9 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  # config redis cache
+  config.cache_store = :redis_store, 'redis://redistogo:86c26f8600bc3951778cfff4a07a39cd@tarpon.redistogo.com:10543/0/cache', { expires_in: 90.minutes }
+
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
@@ -83,4 +86,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_dispatch.rack_cache = {
+    metastore: "redis://localhost:6379/1/metastore",
+    entitystore: "redis://localhost:6379/1/entitystore"
+  }
 end
