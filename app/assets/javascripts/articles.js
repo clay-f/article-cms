@@ -22,7 +22,7 @@ document.addEventListener("turbolinks:load", () => {
                 data: { like_article: { article_id: article_id } },
                 success: (data) => {
                     if (data.operate_state == 0) {
-                        window.location.replace("http://localhost:3000/users/sign_in");
+                        window.location.replace(`${location.origin}/users/sign_in`);
                     } else {
                         changeLikeArticleState(data.article_state);
                     }
