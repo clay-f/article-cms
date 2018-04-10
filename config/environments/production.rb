@@ -87,7 +87,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.action_dispatch.rack_cache = {
-    metastore: "redis://localhost:6379/0/metastore",
-    entitystore: "redis://localhost:6379/0/entitystore"
+    metastore: "redis://redistogo:86c26f8600bc3951778cfff4a07a39cd@tarpon.redistogo.com:10543/0/metastore",
+    entitystore: "redis://redistogo:86c26f8600bc3951778cfff4a07a39cd@tarpon.redistogo.com:10543/0/entitystore"
   }
 end
