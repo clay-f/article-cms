@@ -82,6 +82,7 @@ section.new-comment {
 section.comments {
     width: 600px;
     margin: 0 auto;
+
     p#comment-list-title {
         border-bottom: 1px solid #f0f0f0;
     }
@@ -138,12 +139,26 @@ section.profile-article-list {
     }
 }
 
+section#suggest_articles {
+    width: 650px;
+    margin: 0 auto;
+    div.col {
+        margin-bottom: 25px;
+        padding: 0 0 25px 0;
+        border-bottom: 1px solid #DDDDDD;
+        h5 a {
+            color: black;
+        }
+    }
+}
+
 section#search_article_list {
     div.article-item {
         a {
             text-decoration: none;
             color: black;
         }
+
         border-bottom: 1px solid #f0f0f0;
         margin: 25px 0 30px;
     }

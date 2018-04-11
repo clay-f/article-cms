@@ -19,7 +19,7 @@
                     </div>
                     <div class="wrap-img col-5">
                       <% if article.avatar.file? %>
-                        <%= image_tag(article.avatar, size: '160x100', class: "rounded d-block") %>
+                        <%= image_tag(article.avatar.url, size: '160x100', class: "rounded d-block") %>
                       <% end %>
                     </div>
                   </div>

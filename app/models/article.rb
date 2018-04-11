@@ -8,6 +8,7 @@ class Article < ApplicationRecord
   belongs_to :catalog, touch: true
   belongs_to :user
   has_attached_file :avatar
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   validates :catalog_id, :user_id, presence: true
   validates :title, presence: true, length: { minimum: 3, maximum: 100 } , uniqueness: true
