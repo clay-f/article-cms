@@ -80,6 +80,8 @@ section.new-comment {
 }
 
 section.comments {
+    width: 600px;
+    margin: 0 auto;
     p#comment-list-title {
         border-bottom: 1px solid #f0f0f0;
     }

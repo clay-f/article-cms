@@ -11,7 +11,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
- devise :timeoutable, :timeout_in => 5.minutes
+ devise :timeoutable, :timeout_in => 10.minutes
 
   has_attached_file :avatar, styles: {medium: "300x300>", thumb: "100x100>"}, default_url: ":style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/

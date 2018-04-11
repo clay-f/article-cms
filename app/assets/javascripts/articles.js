@@ -1,4 +1,9 @@
 document.addEventListener("turbolinks:load", () => {
+  $.ajaxSetup({
+      headers: {
+          'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      }
+  });
     {
         $("form#new_comment").keydown((e) => {
             if ((e.keyCode == 10 || e.keyCode == 13) && e.ctrlKey) {
@@ -48,7 +53,7 @@ document.addEventListener("turbolinks:load", () => {
                 method: "post",
                 url: "/comments/" + $(event.target).find("input[type=hidden]").val() + "/comments",
                 dataType: "script",
-                data: {comment: {"description": $(event.target).find("textarea").val()}},
+                data: { comment: { "description": $(event.target).find("textarea").val() } },
                 success: (data) => {
                     console.log("true");
                 },
