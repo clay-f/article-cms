@@ -20,5 +20,4 @@ class Article < ApplicationRecord
   def clear_cache
     $redis.del "articles"
   end
-
 end

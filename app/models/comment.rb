@@ -1,7 +1,7 @@
 class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :article, touch: true
-  belongs_to :commentable, polymorphic: true
+  belongs_to :commentable, polymorphic: true, touch: true
   has_many :comments, as: :commentable
 
   validates :description, presence: true, length: { minimum: 1 }

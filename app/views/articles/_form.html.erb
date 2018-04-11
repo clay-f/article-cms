@@ -6,7 +6,7 @@
         Type: <%= f.select :catalog_id, @categories.collect { |category| [category["name"], category["id"]] }, class: 'form-control' %>
     </div>
     <div class="form-group">
-        <input id="x" value="<%= @article.body %>" type="hidden" name="body">
+        <input id="x" value="<%= @article.body %>" type="hidden" name="article[body]">
         <trix-editor input="x"></trix-editor>
     </div>
     <%= f.button :submit, class: "btn btn-primary" %>

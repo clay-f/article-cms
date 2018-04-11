@@ -38,7 +38,6 @@ class ArticlesController < ApplicationController
   def create
     tmp_article_params = article_params
     tmp_article_params[:user_id] = current_user.id
-    tmp_article_params[:body] = params["body"]
     @article = Article.create(tmp_article_params)
     redirect_to article_path(@article)
   end

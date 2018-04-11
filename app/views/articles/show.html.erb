@@ -56,7 +56,7 @@
 </section>
 <section class="comments text-center">
   <% if @comments.size > 0 %>
-    <p id="comment-list-title"><%= @comments.size %> comments</p>
+    <p id="comment-list-title"><%= @article.comments.size %> comments</p>
     <div id="comment-list">
       <%= render @comments, cached: true %>
     </div>
@@ -71,9 +71,7 @@
     </div>
     <br>
     <p>
-      <% cache do %>
-        <%= paginate @comments, outer_window: 3%>
-      <% end %>
+      <%= paginate @comments, outer_window: 3%>
     </p>
   <% end %>
 </section>
