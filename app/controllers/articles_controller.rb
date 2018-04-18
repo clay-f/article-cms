@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
   end
 
   def profile
+    binding.pry
     @articles = User.find(params[:id]).articles
   end
 

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+
   resources :user do
     resources :messages, except: [:edit, :update]
   end

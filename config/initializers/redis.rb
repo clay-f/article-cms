@@ -5,3 +5,4 @@ uri =
    URI.parse(ENV['REDISTOGO_URL'])
  end
 $redis = Redis.new(url: uri)
+$redis.flushall

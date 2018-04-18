@@ -37,7 +37,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <%= link_to 'Profile', profile_article_path(current_user), class: "dropdown-item" %>
                 <%= link_to 'Preferences', edit_user_registration_path, class: "dropdown-item" %>
-                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                <%= link_to('Logout', destroy_user_session_url, method: :delete, class: "dropdown-item") %> 
               </div>
             </li>
           <% else %>
@@ -78,9 +78,7 @@
       not yet write
     </footer>
     <script
-      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-      crossorigin="anonymous"></script>
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ujs/1.2.2/rails.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
