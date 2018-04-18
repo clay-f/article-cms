@@ -43,6 +43,7 @@ group :development, :test do
   gem 'faraday'
   gem 'byebug', platform: :mri
   gem 'capybara'
+  gem 'selenium-webdriver', '~> 3.11'
   gem 'pry-byebug'
   gem "factory_bot_rails"
   gem 'minitest'

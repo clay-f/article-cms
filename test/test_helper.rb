@@ -4,7 +4,6 @@ require 'rails/test_help'
 require "minitest/autorun"
 require 'capybara/rails'
 require 'capybara/minitest'
-require 'capybara/poltergeist'
 
 class ActiveSupport::TestCase
   include FactoryBot::Syntax::Methods
@@ -15,7 +14,7 @@ class ActionDispatch::IntegrationTest
   include Capybara::DSL
   # Make `assert_*` methods behave like Minitest assertions
   include Capybara::Minitest::Assertions
-  Capybara.javascript_driver = :poltergeist
+  Capybara.javascript_driver = :selenium
   # Reset sessions and driver between tests
   # Use super wherever this method is redefined in your individual test classes
   def teardown

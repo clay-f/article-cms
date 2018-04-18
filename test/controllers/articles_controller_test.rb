@@ -16,6 +16,5 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert page.has_selector?("form")
     assert find_field("search").value
     assert find_field(id: "search").value
-    assert assert find_link("Catalog", visible: :all).visible?
   end
 end
