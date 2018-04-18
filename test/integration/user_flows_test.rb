@@ -9,10 +9,10 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
   test "create article" do
     visit('/')    
     click_link('Sign in')
-    fill_in('Login', with: "foo")
-    fill_in('Password', with: '123456')
-    click_button('Log in')
-    get "/articles/new"
-    assert_response :success
+    within("form#new_user") do
+      fill_in "Login", with: "foo"
+      fill_in "Password", with: "123456"
+      click_on "Log in"
+    end
   end
 end
