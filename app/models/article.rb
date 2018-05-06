@@ -12,7 +12,6 @@ class Article < ApplicationRecord
 
   validates :catalog_id, :user_id, presence: true
   validates :title, presence: true, length: { minimum: 3, maximum: 100 } , uniqueness: true
-  validates :body, presence: true, length: { minimum: 5 }
 
   after_save :clear_cache
 

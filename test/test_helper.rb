@@ -14,7 +14,7 @@ class ActionDispatch::IntegrationTest
   include Capybara::DSL
   # Make `assert_*` methods behave like Minitest assertions
   include Capybara::Minitest::Assertions
-  Capybara.javascript_driver = :selenium
+  Capybara.javascript_driver = :webkit
   # Reset sessions and driver between tests
   # Use super wherever this method is redefined in your individual test classes
   def teardown
