@@ -48,13 +48,11 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Categories
             </a>
-            <% cache do %>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <% fetch_categories.map do |t| %>
-                  <%= link_to t["name"], articles_path(catalog: t["name"]), class: "dropdown-item" %>
-                <% end %>
-              </div>
-            <% end %>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <% fetch_categories.map do |t| %>
+                <%= link_to t["name"], articles_path(catalog: t["name"]), class: "dropdown-item" %>
+              <% end %>
+            </div>
           </li>
         </ul>
         <%= form_tag search_articles_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
