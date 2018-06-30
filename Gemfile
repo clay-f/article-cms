@@ -5,10 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-group :production, :staging do
-  gem 'pg'
-end
-
 gem 'rails'
 gem 'puma'
 gem 'sass-rails'
@@ -28,6 +24,7 @@ gem 'friendly_id'
 gem 'sidekiq'
 gem 'redis-rack-cache'
 gem 'redis-rails'
+gem 'mysql2', '~> 0.5.1'
 
 group :development do
   gem 'web-console'

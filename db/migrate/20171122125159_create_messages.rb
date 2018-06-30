@@ -1,10 +1,12 @@
-class CreateMessages < ActiveRecord::Migration[5.1]
+class CreateMessages < ActiveRecord::Migration[5.2]
   def change
     create_table :messages do |t|
       t.text :body
-      t.integer :user_id
       t.integer :receive_name
-      t.integer :message_state_id
+      
+      t.references :users, :type => :bigint
+      t.references :message_states, :type => :bigint
+
 
       t.timestamps
     end
